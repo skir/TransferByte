@@ -1,0 +1,1477 @@
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"SCB_1_SPI.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.SCB_1_SpiInit,"ax",%progbits
+  18              		.align	2
+  19              		.global	SCB_1_SpiInit
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	SCB_1_SpiInit, %function
+  23              	SCB_1_SpiInit:
+  24              	.LFB2:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\SCB_1_SPI.c"
+   1:.\Generated_Source\PSoC4/SCB_1_SPI.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * File Name: SCB_1_SPI.c
+   3:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Version 3.10
+   4:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+   5:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Description:
+   6:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  This file provides the source code to the API for the SCB Component in
+   7:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  SPI mode.
+   8:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+   9:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Note:
+  10:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+  11:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *******************************************************************************
+  12:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Copyright 2013-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  18:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #include "SCB_1_PVT.h"
+  19:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #include "SCB_1_SPI_UART_PVT.h"
+  20:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  21:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if(SCB_1_SCB_MODE_UNCONFIG_CONST_CFG)
+  22:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  23:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /***************************************
+  24:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  Configuration Structure Initialization
+  25:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     ***************************************/
+  26:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  27:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     const SCB_1_SPI_INIT_STRUCT SCB_1_configSpi =
+  28:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+  29:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_MODE,
+  30:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_SUB_MODE,
+  31:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_CLOCK_MODE,
+  32:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_OVS_FACTOR,
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_MEDIAN_FILTER_ENABLE,
+  34:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_LATE_MISO_SAMPLE_ENABLE,
+  35:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_WAKE_ENABLE,
+  36:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_RX_DATA_BITS_NUM,
+  37:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_TX_DATA_BITS_NUM,
+  38:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_BITS_ORDER,
+  39:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_TRANSFER_SEPARATION,
+  40:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         0u,
+  41:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         NULL,
+  42:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         0u,
+  43:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         NULL,
+  44:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         (uint32) SCB_1_SCB_IRQ_INTERNAL,
+  45:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_INTR_RX_MASK,
+  46:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_RX_TRIGGER_LEVEL,
+  47:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_INTR_TX_MASK,
+  48:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_TX_TRIGGER_LEVEL,
+  49:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         (uint8) SCB_1_SPI_BYTE_MODE_ENABLE,
+  50:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         (uint8) SCB_1_SPI_FREE_RUN_SCLK_ENABLE,
+  51:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         (uint8) SCB_1_SPI_SS_POLARITY
+  52:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     };
+  53:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  54:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  55:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /*******************************************************************************
+  56:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Function Name: SCB_1_SpiInit
+  57:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     ********************************************************************************
+  58:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+  59:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Summary:
+  60:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  Configures the SCB for the SPI operation.
+  61:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+  62:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Parameters:
+  63:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  config:  Pointer to a structure that contains the following ordered list of
+  64:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *           fields. These fields match the selections available in the
+  65:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *           customizer.
+  66:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+  67:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Return:
+  68:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  None
+  69:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+  70:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *******************************************************************************/
+  71:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     void SCB_1_SpiInit(const SCB_1_SPI_INIT_STRUCT *config)
+  72:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+  73:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         if(NULL == config)
+  74:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         {
+  75:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             CYASSERT(0u != 0u); /* Halt execution due to bad function parameter */
+  76:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         }
+  77:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         else
+  78:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         {
+  79:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure pins */
+  80:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_SetPins(SCB_1_SCB_MODE_SPI, config->mode, SCB_1_DUMMY_PARAM);
+  81:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  82:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Store internal configuration */
+  83:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_scbMode       = (uint8) SCB_1_SCB_MODE_SPI;
+  84:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_scbEnableWake = (uint8) config->enableWake;
+  85:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_scbEnableIntr = (uint8) config->enableInterrupt;
+  86:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  87:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Set RX direction internal variables */
+  88:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxBuffer      =         config->rxBuffer;
+  89:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxDataBits    = (uint8) config->rxDataBits;
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 3
+
+
+  90:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxBufferSize  = (uint8) config->rxBufferSize;
+  91:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  92:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Set TX direction internal variables */
+  93:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_txBuffer      =         config->txBuffer;
+  94:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_txDataBits    = (uint8) config->txDataBits;
+  95:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_txBufferSize  = (uint8) config->txBufferSize;
+  96:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+  97:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure SPI interface */
+  98:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_CTRL_REG     = SCB_1_GET_CTRL_OVS(config->oversample)           |
+  99:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_CTRL_BYTE_MODE(config->enableByteMode) |
+ 100:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_CTRL_EC_AM_MODE(config->enableWake)    |
+ 101:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_CTRL_SPI;
+ 102:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 103:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_SPI_CTRL_REG = SCB_1_GET_SPI_CTRL_CONTINUOUS    (config->transferSeperation)  |
+ 104:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_SELECT_PRECEDE(config->submode &
+ 105:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                                           SCB_1_SPI_MODE_TI_PRECEDE
+ 106:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_SCLK_MODE     (config->sclkMode)    
+ 107:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_LATE_MISO_SAMPLE(config->enableLateS
+ 108:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_SCLK_CONTINUOUS(config->enableFreeRu
+ 109:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_SSEL_POLARITY (config->polaritySs)  
+ 110:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_SUB_MODE      (config->submode)     
+ 111:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                             SCB_1_GET_SPI_CTRL_MASTER_MODE   (config->mode);
+ 112:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 113:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure RX direction */
+ 114:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_RX_CTRL_REG     =  SCB_1_GET_RX_CTRL_DATA_WIDTH(config->rxDataBits)         |
+ 115:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                 SCB_1_GET_RX_CTRL_BIT_ORDER (config->bitOrder)     
+ 116:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                 SCB_1_GET_RX_CTRL_MEDIAN    (config->enableMedianFi
+ 117:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                 SCB_1_SPI_RX_CTRL;
+ 118:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 119:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_RX_FIFO_CTRL_REG = SCB_1_GET_RX_FIFO_CTRL_TRIGGER_LEVEL(config->rxTriggerLevel);
+ 120:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 121:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure TX direction */
+ 122:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_TX_CTRL_REG      = SCB_1_GET_TX_CTRL_DATA_WIDTH(config->txDataBits) |
+ 123:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                 SCB_1_GET_TX_CTRL_BIT_ORDER (config->bitOrder)   |
+ 124:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                                 SCB_1_SPI_TX_CTRL;
+ 125:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 126:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_TX_FIFO_CTRL_REG = SCB_1_GET_TX_FIFO_CTRL_TRIGGER_LEVEL(config->txTriggerLevel);
+ 127:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 128:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure interrupt with SPI handler but do not enable it */
+ 129:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             CyIntDisable    (SCB_1_ISR_NUMBER);
+ 130:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             CyIntSetPriority(SCB_1_ISR_NUMBER, SCB_1_ISR_PRIORITY);
+ 131:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             (void) CyIntSetVector(SCB_1_ISR_NUMBER, &SCB_1_SPI_UART_ISR);
+ 132:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 133:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Configure interrupt sources */
+ 134:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_I2C_EC_MASK_REG = SCB_1_NO_INTR_SOURCES;
+ 135:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_SPI_EC_MASK_REG = SCB_1_NO_INTR_SOURCES;
+ 136:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_SLAVE_MASK_REG  = SCB_1_GET_SPI_INTR_SLAVE_MASK(config->rxInterruptMask);
+ 137:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_MASTER_MASK_REG = SCB_1_GET_SPI_INTR_MASTER_MASK(config->txInterruptMask);
+ 138:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_RX_MASK_REG     = SCB_1_GET_SPI_INTR_RX_MASK(config->rxInterruptMask);
+ 139:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_INTR_TX_MASK_REG     = SCB_1_GET_SPI_INTR_TX_MASK(config->txInterruptMask);
+ 140:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 141:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Set active SS0 */
+ 142:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_SpiSetActiveSlaveSelect(SCB_1_SPI_SLAVE_SELECT0);
+ 143:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 144:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Clear RX buffer indexes */
+ 145:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxBufferHead     = 0u;
+ 146:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxBufferTail     = 0u;
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 4
+
+
+ 147:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_rxBufferOverflow = 0u;
+ 148:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 149:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             /* Clear TX buffer indexes */
+ 150:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_txBufferHead = 0u;
+ 151:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_txBufferTail = 0u;
+ 152:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         }
+ 153:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+ 154:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 155:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #else
+ 156:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 157:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /*******************************************************************************
+ 158:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Function Name: SCB_1_SpiInit
+ 159:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     ********************************************************************************
+ 160:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 161:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Summary:
+ 162:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  Configures the SCB for the SPI operation.
+ 163:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 164:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Parameters:
+ 165:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  None
+ 166:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 167:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Return:
+ 168:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  None
+ 169:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 170:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *******************************************************************************/
+ 171:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     void SCB_1_SpiInit(void)
+ 172:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+  26              		.loc 1 172 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+ 173:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Configure SPI interface */
+ 174:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_CTRL_REG     = SCB_1_SPI_DEFAULT_CTRL;
+  34              		.loc 1 174 0
+  35 0004 144B     		ldr	r3, .L2
+  36 0006 154A     		ldr	r2, .L2+4
+  37 0008 1A60     		str	r2, [r3]
+ 175:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_CTRL_REG = SCB_1_SPI_DEFAULT_SPI_CTRL;
+  38              		.loc 1 175 0
+  39 000a 154B     		ldr	r3, .L2+8
+  40 000c 154A     		ldr	r2, .L2+12
+  41 000e 1A60     		str	r2, [r3]
+ 176:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 177:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Configure TX and RX direction */
+ 178:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_RX_CTRL_REG      = SCB_1_SPI_DEFAULT_RX_CTRL;
+  42              		.loc 1 178 0
+  43 0010 154B     		ldr	r3, .L2+16
+  44 0012 164A     		ldr	r2, .L2+20
+  45 0014 1A60     		str	r2, [r3]
+ 179:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_RX_FIFO_CTRL_REG = SCB_1_SPI_DEFAULT_RX_FIFO_CTRL;
+  46              		.loc 1 179 0
+  47 0016 164B     		ldr	r3, .L2+24
+  48 0018 0722     		mov	r2, #7
+  49 001a 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 5
+
+
+ 180:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 181:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Configure TX and RX direction */
+ 182:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_TX_CTRL_REG      = SCB_1_SPI_DEFAULT_TX_CTRL;
+  50              		.loc 1 182 0
+  51 001c 154B     		ldr	r3, .L2+28
+  52 001e 134A     		ldr	r2, .L2+20
+  53 0020 1A60     		str	r2, [r3]
+ 183:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_TX_FIFO_CTRL_REG = SCB_1_SPI_DEFAULT_TX_FIFO_CTRL;
+  54              		.loc 1 183 0
+  55 0022 154B     		ldr	r3, .L2+32
+  56 0024 0022     		mov	r2, #0
+  57 0026 1A60     		str	r2, [r3]
+ 184:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 185:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Configure interrupt with SPI handler but do not enable it */
+ 186:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if(SCB_1_SCB_IRQ_INTERNAL)
+ 187:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             CyIntDisable    (SCB_1_ISR_NUMBER);
+ 188:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             CyIntSetPriority(SCB_1_ISR_NUMBER, SCB_1_ISR_PRIORITY);
+ 189:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             (void) CyIntSetVector(SCB_1_ISR_NUMBER, &SCB_1_SPI_UART_ISR);
+ 190:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SCB_IRQ_INTERNAL) */
+ 191:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 192:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Configure interrupt sources */
+ 193:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_I2C_EC_MASK_REG = SCB_1_SPI_DEFAULT_INTR_I2C_EC_MASK;
+  58              		.loc 1 193 0
+  59 0028 144B     		ldr	r3, .L2+36
+  60 002a 0022     		mov	r2, #0
+  61 002c 1A60     		str	r2, [r3]
+ 194:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_SPI_EC_MASK_REG = SCB_1_SPI_DEFAULT_INTR_SPI_EC_MASK;
+  62              		.loc 1 194 0
+  63 002e 144B     		ldr	r3, .L2+40
+  64 0030 0022     		mov	r2, #0
+  65 0032 1A60     		str	r2, [r3]
+ 195:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_SLAVE_MASK_REG  = SCB_1_SPI_DEFAULT_INTR_SLAVE_MASK;
+  66              		.loc 1 195 0
+  67 0034 134B     		ldr	r3, .L2+44
+  68 0036 0022     		mov	r2, #0
+  69 0038 1A60     		str	r2, [r3]
+ 196:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_MASTER_MASK_REG = SCB_1_SPI_DEFAULT_INTR_MASTER_MASK;
+  70              		.loc 1 196 0
+  71 003a 134B     		ldr	r3, .L2+48
+  72 003c 0022     		mov	r2, #0
+  73 003e 1A60     		str	r2, [r3]
+ 197:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_RX_MASK_REG     = SCB_1_SPI_DEFAULT_INTR_RX_MASK;
+  74              		.loc 1 197 0
+  75 0040 124B     		ldr	r3, .L2+52
+  76 0042 0022     		mov	r2, #0
+  77 0044 1A60     		str	r2, [r3]
+ 198:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_INTR_TX_MASK_REG     = SCB_1_SPI_DEFAULT_INTR_TX_MASK;
+  78              		.loc 1 198 0
+  79 0046 124B     		ldr	r3, .L2+56
+  80 0048 0022     		mov	r2, #0
+  81 004a 1A60     		str	r2, [r3]
+ 199:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 200:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set active SS0 for master */
+ 201:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SPI_MASTER_CONST)
+ 202:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SpiSetActiveSlaveSelect(SCB_1_SPI_SLAVE_SELECT0);
+  82              		.loc 1 202 0
+  83 004c 0020     		mov	r0, #0
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 6
+
+
+  84 004e FFF7FEFF 		bl	SCB_1_SpiSetActiveSlaveSelect
+ 203:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SPI_MASTER_CONST) */
+ 204:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 205:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if(SCB_1_INTERNAL_RX_SW_BUFFER_CONST)
+ 206:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_rxBufferHead     = 0u;
+ 207:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_rxBufferTail     = 0u;
+ 208:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_rxBufferOverflow = 0u;
+ 209:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_INTERNAL_RX_SW_BUFFER_CONST) */
+ 210:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 211:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if(SCB_1_INTERNAL_TX_SW_BUFFER_CONST)
+ 212:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_txBufferHead = 0u;
+ 213:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_txBufferTail = 0u;
+ 214:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_INTERNAL_TX_SW_BUFFER_CONST) */
+ 215:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+  85              		.loc 1 215 0
+  86 0052 BD46     		mov	sp, r7
+  87              		@ sp needed
+  88 0054 80BD     		pop	{r7, pc}
+  89              	.L3:
+  90 0056 C046     		.align	2
+  91              	.L2:
+  92 0058 00002440 		.word	1076101120
+  93 005c 0F000001 		.word	16777231
+  94 0060 20002440 		.word	1076101152
+  95 0064 01000080 		.word	-2147483647
+  96 0068 00032440 		.word	1076101888
+  97 006c 07010080 		.word	-2147483385
+  98 0070 04032440 		.word	1076101892
+  99 0074 00022440 		.word	1076101632
+ 100 0078 04022440 		.word	1076101636
+ 101 007c 880E2440 		.word	1076104840
+ 102 0080 C80E2440 		.word	1076104904
+ 103 0084 480F2440 		.word	1076105032
+ 104 0088 080F2440 		.word	1076104968
+ 105 008c C80F2440 		.word	1076105160
+ 106 0090 880F2440 		.word	1076105096
+ 107              		.cfi_endproc
+ 108              	.LFE2:
+ 109              		.size	SCB_1_SpiInit, .-SCB_1_SpiInit
+ 110              		.section	.text.SCB_1_SpiPostEnable,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	SCB_1_SpiPostEnable
+ 113              		.code	16
+ 114              		.thumb_func
+ 115              		.type	SCB_1_SpiPostEnable, %function
+ 116              	SCB_1_SpiPostEnable:
+ 117              	.LFB3:
+ 216:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 217:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 218:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 219:.\Generated_Source\PSoC4/SCB_1_SPI.c **** /*******************************************************************************
+ 220:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Function Name: SCB_1_SpiPostEnable
+ 221:.\Generated_Source\PSoC4/SCB_1_SPI.c **** ********************************************************************************
+ 222:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 223:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Summary:
+ 224:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  Restores HSIOM settings for the SPI master output pins (SCLK and/or SS0-SS3) 
+ 225:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  to be controlled by the SCB SPI.
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 7
+
+
+ 226:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 227:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Parameters:
+ 228:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  None
+ 229:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 230:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Return:
+ 231:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  None
+ 232:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 233:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *******************************************************************************/
+ 234:.\Generated_Source\PSoC4/SCB_1_SPI.c **** void SCB_1_SpiPostEnable(void)
+ 235:.\Generated_Source\PSoC4/SCB_1_SPI.c **** {
+ 118              		.loc 1 235 0
+ 119              		.cfi_startproc
+ 120 0000 80B5     		push	{r7, lr}
+ 121              		.cfi_def_cfa_offset 8
+ 122              		.cfi_offset 7, -8
+ 123              		.cfi_offset 14, -4
+ 124 0002 00AF     		add	r7, sp, #0
+ 125              		.cfi_def_cfa_register 7
+ 236:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if(SCB_1_SCB_MODE_UNCONFIG_CONST_CFG)
+ 237:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 238:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     if (SCB_1_CHECK_SPI_MASTER)
+ 239:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+ 240:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_CTS_SCLK_PIN)
+ 241:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 242:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_CTS_SCLK_HSIOM_REG, SCB_1_CTS_SCLK_HSIOM_MASK,
+ 243:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_CTS_SCLK_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 244:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_CTS_SCLK_PIN) */
+ 245:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 246:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_RTS_SS0_PIN)
+ 247:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 248:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_RTS_SS0_HSIOM_REG, SCB_1_RTS_SS0_HSIOM_MASK,
+ 249:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_RTS_SS0_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 250:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_RTS_SS0_PIN) */
+ 251:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 252:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS1_PIN)
+ 253:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 254:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS1_HSIOM_REG, SCB_1_SS1_HSIOM_MASK,
+ 255:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS1_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 256:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS1_PIN) */
+ 257:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 258:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS2_PIN)
+ 259:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 260:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS2_HSIOM_REG, SCB_1_SS2_HSIOM_MASK,
+ 261:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS2_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 262:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS2_PIN) */
+ 263:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 264:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS3_PIN)
+ 265:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set SCB SPI to drive output pin */
+ 266:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS3_HSIOM_REG, SCB_1_SS3_HSIOM_MASK,
+ 267:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS3_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 268:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS3_PIN) */
+ 269:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+ 270:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 271:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #else
+ 272:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 273:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SCLK_PIN)
+ 274:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set SCB SPI to drive output pin */
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 8
+
+
+ 275:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SCLK_M_HSIOM_REG, SCB_1_SCLK_M_HSIOM_MASK,
+ 126              		.loc 1 275 0
+ 127 0004 074B     		ldr	r3, .L5
+ 128 0006 074A     		ldr	r2, .L5
+ 129 0008 1268     		ldr	r2, [r2]
+ 130 000a F021     		mov	r1, #240
+ 131 000c 0906     		lsl	r1, r1, #24
+ 132 000e 0A43     		orr	r2, r1
+ 133 0010 1A60     		str	r2, [r3]
+ 276:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SCLK_M_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 277:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_MISO_SDA_TX_PIN_PIN) */
+ 278:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 279:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS0_PIN)
+ 280:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 281:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS0_M_HSIOM_REG, SCB_1_SS0_M_HSIOM_MASK,
+ 134              		.loc 1 281 0
+ 135 0012 044B     		ldr	r3, .L5
+ 136 0014 034A     		ldr	r2, .L5
+ 137 0016 1268     		ldr	r2, [r2]
+ 138 0018 F021     		mov	r1, #240
+ 139 001a 0905     		lsl	r1, r1, #20
+ 140 001c 0A43     		orr	r2, r1
+ 141 001e 1A60     		str	r2, [r3]
+ 282:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS0_M_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 283:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS0_PIN) */
+ 284:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 285:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS1_PIN)
+ 286:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 287:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS1_M_HSIOM_REG, SCB_1_SS1_M_HSIOM_MASK,
+ 288:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS1_M_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 289:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS1_PIN) */
+ 290:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 291:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS2_PIN)
+ 292:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 293:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS2_M_HSIOM_REG, SCB_1_SS2_M_HSIOM_MASK,
+ 294:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS2_M_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 295:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS2_PIN) */
+ 296:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 297:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS3_PIN)
+ 298:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set SCB SPI to drive output pin */
+ 299:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS3_M_HSIOM_REG, SCB_1_SS3_M_HSIOM_MASK,
+ 300:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS3_M_HSIOM_POS, SCB_1_HSIOM_SPI_SEL);
+ 301:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS3_PIN) */
+ 302:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 303:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 304:.\Generated_Source\PSoC4/SCB_1_SPI.c **** }
+ 142              		.loc 1 304 0
+ 143 0020 BD46     		mov	sp, r7
+ 144              		@ sp needed
+ 145 0022 80BD     		pop	{r7, pc}
+ 146              	.L6:
+ 147              		.align	2
+ 148              	.L5:
+ 149 0024 00010240 		.word	1073873152
+ 150              		.cfi_endproc
+ 151              	.LFE3:
+ 152              		.size	SCB_1_SpiPostEnable, .-SCB_1_SpiPostEnable
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 9
+
+
+ 153              		.section	.text.SCB_1_SpiStop,"ax",%progbits
+ 154              		.align	2
+ 155              		.global	SCB_1_SpiStop
+ 156              		.code	16
+ 157              		.thumb_func
+ 158              		.type	SCB_1_SpiStop, %function
+ 159              	SCB_1_SpiStop:
+ 160              	.LFB4:
+ 305:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 306:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 307:.\Generated_Source\PSoC4/SCB_1_SPI.c **** /*******************************************************************************
+ 308:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Function Name: SCB_1_SpiStop
+ 309:.\Generated_Source\PSoC4/SCB_1_SPI.c **** ********************************************************************************
+ 310:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 311:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Summary:
+ 312:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  Changes the HSIOM settings for the SPI master output pins (SCLK and/or SS0-SS3) to
+ 313:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  keep them inactive after the block is disabled. The output pins are
+ 314:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  controlled by the GPIO data register.
+ 315:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 316:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Parameters:
+ 317:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  None
+ 318:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 319:.\Generated_Source\PSoC4/SCB_1_SPI.c **** * Return:
+ 320:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *  None
+ 321:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *
+ 322:.\Generated_Source\PSoC4/SCB_1_SPI.c **** *******************************************************************************/
+ 323:.\Generated_Source\PSoC4/SCB_1_SPI.c **** void SCB_1_SpiStop(void)
+ 324:.\Generated_Source\PSoC4/SCB_1_SPI.c **** {
+ 161              		.loc 1 324 0
+ 162              		.cfi_startproc
+ 163 0000 80B5     		push	{r7, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 7, -8
+ 166              		.cfi_offset 14, -4
+ 167 0002 00AF     		add	r7, sp, #0
+ 168              		.cfi_def_cfa_register 7
+ 325:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if(SCB_1_SCB_MODE_UNCONFIG_CONST_CFG)
+ 326:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 327:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     if (SCB_1_CHECK_SPI_MASTER)
+ 328:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+ 329:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SCLK_PIN)
+ 330:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set output pin state after block is disabled */
+ 331:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_uart_cts_spi_sclk_Write(SCB_1_GET_SPI_SCLK_INACTIVE);
+ 332:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 333:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set GPIO to drive output pin */
+ 334:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SCLK_HSIOM_REG, SCB_1_SCLK_HSIOM_MASK,
+ 335:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SCLK_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 336:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_MISO_SDA_TX_PIN_PIN) */
+ 337:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 338:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS0_PIN)
+ 339:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set output pin state after block is disabled */
+ 340:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_uart_rts_spi_ss0_Write(SCB_1_GET_SPI_SS0_INACTIVE);
+ 341:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 342:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set GPIO to drive output pin */
+ 343:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS0_HSIOM_REG, SCB_1_SS0_HSIOM_MASK,
+ 344:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS0_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 345:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS0_PIN) */
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 10
+
+
+ 346:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 347:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS1_PIN)
+ 348:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set output pin state after block is disabled */
+ 349:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_spi_ss1_Write(SCB_1_GET_SPI_SS1_INACTIVE);
+ 350:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 351:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set GPIO to drive output pin */
+ 352:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS1_HSIOM_REG, SCB_1_SS1_HSIOM_MASK,
+ 353:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS1_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 354:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS1_PIN) */
+ 355:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 356:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS2_PIN)
+ 357:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set output pin state after block is disabled */
+ 358:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_spi_ss2_Write(SCB_1_GET_SPI_SS2_INACTIVE);
+ 359:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 360:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set GPIO to drive output pin */
+ 361:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS2_HSIOM_REG, SCB_1_SS2_HSIOM_MASK,
+ 362:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS2_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 363:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS2_PIN) */
+ 364:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 365:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #if (SCB_1_SS3_PIN)
+ 366:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set output pin state after block is disabled */
+ 367:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_spi_ss3_Write(SCB_1_GET_SPI_SS3_INACTIVE);
+ 368:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 369:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Set GPIO to drive output pin */
+ 370:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SET_HSIOM_SEL(SCB_1_SS3_HSIOM_REG, SCB_1_SS3_HSIOM_MASK,
+ 371:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                        SCB_1_SS3_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 372:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     #endif /* (SCB_1_SS3_PIN) */
+ 373:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+ 374:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 375:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #else
+ 376:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 377:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SCLK_PIN)
+ 378:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set output pin state after block is disabled */
+ 379:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_sclk_m_Write(SCB_1_GET_SPI_SCLK_INACTIVE);
+ 169              		.loc 1 379 0
+ 170 0004 114B     		ldr	r3, .L8
+ 171 0006 1B68     		ldr	r3, [r3]
+ 172 0008 0822     		mov	r2, #8
+ 173 000a 1340     		and	r3, r2
+ 174 000c 5A1E     		sub	r2, r3, #1
+ 175 000e 9341     		sbc	r3, r3, r2
+ 176 0010 DBB2     		uxtb	r3, r3
+ 177 0012 181C     		mov	r0, r3
+ 178 0014 FFF7FEFF 		bl	SCB_1_sclk_m_Write
+ 380:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 381:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set GPIO to drive output pin */
+ 382:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SCLK_M_HSIOM_REG, SCB_1_SCLK_M_HSIOM_MASK,
+ 179              		.loc 1 382 0
+ 180 0018 0D4B     		ldr	r3, .L8+4
+ 181 001a 0D4A     		ldr	r2, .L8+4
+ 182 001c 1268     		ldr	r2, [r2]
+ 183 001e 1201     		lsl	r2, r2, #4
+ 184 0020 1209     		lsr	r2, r2, #4
+ 185 0022 1A60     		str	r2, [r3]
+ 383:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SCLK_M_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 384:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_MISO_SDA_TX_PIN_PIN) */
+ 385:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 11
+
+
+ 386:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS0_PIN)
+ 387:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set output pin state after block is disabled */
+ 388:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_ss0_m_Write(SCB_1_GET_SPI_SS0_INACTIVE);
+ 186              		.loc 1 388 0
+ 187 0024 094B     		ldr	r3, .L8
+ 188 0026 1A68     		ldr	r2, [r3]
+ 189 0028 8023     		mov	r3, #128
+ 190 002a 5B00     		lsl	r3, r3, #1
+ 191 002c 1340     		and	r3, r2
+ 192 002e 5A42     		neg	r2, r3
+ 193 0030 5341     		adc	r3, r3, r2
+ 194 0032 DBB2     		uxtb	r3, r3
+ 195 0034 181C     		mov	r0, r3
+ 196 0036 FFF7FEFF 		bl	SCB_1_ss0_m_Write
+ 389:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 390:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set GPIO to drive output pin */
+ 391:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS0_M_HSIOM_REG, SCB_1_SS0_M_HSIOM_MASK,
+ 197              		.loc 1 391 0
+ 198 003a 054B     		ldr	r3, .L8+4
+ 199 003c 044A     		ldr	r2, .L8+4
+ 200 003e 1268     		ldr	r2, [r2]
+ 201 0040 0449     		ldr	r1, .L8+8
+ 202 0042 0A40     		and	r2, r1
+ 203 0044 1A60     		str	r2, [r3]
+ 392:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS0_M_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 393:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS0_PIN) */
+ 394:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 395:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS1_PIN)
+ 396:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set output pin state after block is disabled */
+ 397:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_ss1_m_Write(SCB_1_GET_SPI_SS1_INACTIVE);
+ 398:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 399:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set GPIO to drive output pin */
+ 400:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS1_M_HSIOM_REG, SCB_1_SS1_M_HSIOM_MASK,
+ 401:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS1_M_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 402:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS1_PIN) */
+ 403:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 404:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS2_PIN)
+ 405:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set output pin state after block is disabled */
+ 406:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_ss2_m_Write(SCB_1_GET_SPI_SS2_INACTIVE);
+ 407:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 408:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set GPIO to drive output pin */
+ 409:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS2_M_HSIOM_REG, SCB_1_SS2_M_HSIOM_MASK,
+ 410:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS2_M_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 411:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS2_PIN) */
+ 412:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 413:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_SS3_PIN)
+ 414:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set output pin state after block is disabled */
+ 415:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_ss3_m_Write(SCB_1_GET_SPI_SS3_INACTIVE);
+ 416:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 417:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /* Set GPIO to drive output pin */
+ 418:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     SCB_1_SET_HSIOM_SEL(SCB_1_SS3_M_HSIOM_REG, SCB_1_SS3_M_HSIOM_MASK,
+ 419:.\Generated_Source\PSoC4/SCB_1_SPI.c ****                                    SCB_1_SS3_M_HSIOM_POS, SCB_1_HSIOM_GPIO_SEL);
+ 420:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_SS3_PIN) */
+ 421:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 422:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SCB_MODE_UNCONFIG_CONST_CFG) */
+ 423:.\Generated_Source\PSoC4/SCB_1_SPI.c **** }
+ 204              		.loc 1 423 0
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 12
+
+
+ 205 0046 BD46     		mov	sp, r7
+ 206              		@ sp needed
+ 207 0048 80BD     		pop	{r7, pc}
+ 208              	.L9:
+ 209 004a C046     		.align	2
+ 210              	.L8:
+ 211 004c 20002440 		.word	1076101152
+ 212 0050 00010240 		.word	1073873152
+ 213 0054 FFFFFFF0 		.word	-251658241
+ 214              		.cfi_endproc
+ 215              	.LFE4:
+ 216              		.size	SCB_1_SpiStop, .-SCB_1_SpiStop
+ 217              		.section	.text.SCB_1_SpiSetActiveSlaveSelect,"ax",%progbits
+ 218              		.align	2
+ 219              		.global	SCB_1_SpiSetActiveSlaveSelect
+ 220              		.code	16
+ 221              		.thumb_func
+ 222              		.type	SCB_1_SpiSetActiveSlaveSelect, %function
+ 223              	SCB_1_SpiSetActiveSlaveSelect:
+ 224              	.LFB5:
+ 424:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 425:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 426:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if (SCB_1_SPI_MASTER_CONST)
+ 427:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /*******************************************************************************
+ 428:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Function Name: SCB_1_SetActiveSlaveSelect
+ 429:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     ********************************************************************************
+ 430:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 431:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Summary:
+ 432:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  Selects one of the four slave select lines to be active during the transfer.
+ 433:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  After initialization the active slave select line is 0.
+ 434:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  The component should be in one of the following states to change the active
+ 435:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  slave select signal source correctly:
+ 436:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   - The component is disabled
+ 437:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   - The component has completed transfer (TX FIFO is empty and the
+ 438:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *     SCB_INTR_MASTER_SPI_DONE status is set)
+ 439:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  This function does not check that these conditions are met.
+ 440:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  This function is only applicable to SPI Master mode of operation.
+ 441:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 442:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Parameters:
+ 443:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  slaveSelect: slave select line which will be active while the following
+ 444:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *               transfer.
+ 445:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT0 - Slave select 0
+ 446:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT1 - Slave select 1
+ 447:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT2 - Slave select 2
+ 448:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT3 - Slave select 3
+ 449:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 450:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Return:
+ 451:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  None
+ 452:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 453:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *******************************************************************************/
+ 454:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     void SCB_1_SpiSetActiveSlaveSelect(uint32 slaveSelect)
+ 455:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+ 225              		.loc 1 455 0
+ 226              		.cfi_startproc
+ 227 0000 80B5     		push	{r7, lr}
+ 228              		.cfi_def_cfa_offset 8
+ 229              		.cfi_offset 7, -8
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 13
+
+
+ 230              		.cfi_offset 14, -4
+ 231 0002 84B0     		sub	sp, sp, #16
+ 232              		.cfi_def_cfa_offset 24
+ 233 0004 00AF     		add	r7, sp, #0
+ 234              		.cfi_def_cfa_register 7
+ 235 0006 7860     		str	r0, [r7, #4]
+ 456:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         uint32 spiCtrl;
+ 457:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 458:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         spiCtrl = SCB_1_SPI_CTRL_REG;
+ 236              		.loc 1 458 0
+ 237 0008 0A4B     		ldr	r3, .L11
+ 238 000a 1B68     		ldr	r3, [r3]
+ 239 000c FB60     		str	r3, [r7, #12]
+ 459:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 460:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         spiCtrl &= (uint32) ~SCB_1_SPI_CTRL_SLAVE_SELECT_MASK;
+ 240              		.loc 1 460 0
+ 241 000e FB68     		ldr	r3, [r7, #12]
+ 242 0010 094A     		ldr	r2, .L11+4
+ 243 0012 1340     		and	r3, r2
+ 244 0014 FB60     		str	r3, [r7, #12]
+ 461:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         spiCtrl |= (uint32)  SCB_1_GET_SPI_CTRL_SS(slaveSelect);
+ 245              		.loc 1 461 0
+ 246 0016 7B68     		ldr	r3, [r7, #4]
+ 247 0018 9A06     		lsl	r2, r3, #26
+ 248 001a C023     		mov	r3, #192
+ 249 001c 1B05     		lsl	r3, r3, #20
+ 250 001e 1340     		and	r3, r2
+ 251 0020 FA68     		ldr	r2, [r7, #12]
+ 252 0022 1343     		orr	r3, r2
+ 253 0024 FB60     		str	r3, [r7, #12]
+ 462:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 463:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         SCB_1_SPI_CTRL_REG = spiCtrl;
+ 254              		.loc 1 463 0
+ 255 0026 034B     		ldr	r3, .L11
+ 256 0028 FA68     		ldr	r2, [r7, #12]
+ 257 002a 1A60     		str	r2, [r3]
+ 464:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+ 258              		.loc 1 464 0
+ 259 002c BD46     		mov	sp, r7
+ 260 002e 04B0     		add	sp, sp, #16
+ 261              		@ sp needed
+ 262 0030 80BD     		pop	{r7, pc}
+ 263              	.L12:
+ 264 0032 C046     		.align	2
+ 265              	.L11:
+ 266 0034 20002440 		.word	1076101152
+ 267 0038 FFFFFFF3 		.word	-201326593
+ 268              		.cfi_endproc
+ 269              	.LFE5:
+ 270              		.size	SCB_1_SpiSetActiveSlaveSelect, .-SCB_1_SpiSetActiveSlaveSelect
+ 271              		.section	.text.SCB_1_SpiSetSlaveSelectPolarity,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	SCB_1_SpiSetSlaveSelectPolarity
+ 274              		.code	16
+ 275              		.thumb_func
+ 276              		.type	SCB_1_SpiSetSlaveSelectPolarity, %function
+ 277              	SCB_1_SpiSetSlaveSelectPolarity:
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 14
+
+
+ 278              	.LFB6:
+ 465:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #endif /* (SCB_1_SPI_MASTER_CONST) */
+ 466:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 467:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 468:.\Generated_Source\PSoC4/SCB_1_SPI.c **** #if !(SCB_1_CY_SCBIP_V0 || SCB_1_CY_SCBIP_V1)
+ 469:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     /*******************************************************************************
+ 470:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Function Name: SCB_1_SpiSetSlaveSelectPolarity
+ 471:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     ********************************************************************************
+ 472:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 473:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Summary:
+ 474:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  Sets active polarity for slave select line.
+ 475:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  The component should be in one of the following states to change the active
+ 476:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  slave select signal source correctly:
+ 477:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   - The component is disabled.
+ 478:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   - The component has completed transfer.
+ 479:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  This function does not check that these conditions are met.
+ 480:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 481:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Parameters:
+ 482:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  slaveSelect: slave select line to change active polarity.
+ 483:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT0 - Slave select 0
+ 484:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT1 - Slave select 1
+ 485:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT2 - Slave select 2
+ 486:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SLAVE_SELECT3 - Slave select 3
+ 487:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 488:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  polarity: active polarity of slave select line.
+ 489:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SS_ACTIVE_LOW  - Slave select is active low
+ 490:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *   SCB_1_SPI_SS_ACTIVE_HIGH - Slave select is active high
+ 491:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 492:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     * Return:
+ 493:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *  None
+ 494:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *
+ 495:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     *******************************************************************************/
+ 496:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     void SCB_1_SpiSetSlaveSelectPolarity(uint32 slaveSelect, uint32 polarity)
+ 497:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     {
+ 279              		.loc 1 497 0
+ 280              		.cfi_startproc
+ 281 0000 80B5     		push	{r7, lr}
+ 282              		.cfi_def_cfa_offset 8
+ 283              		.cfi_offset 7, -8
+ 284              		.cfi_offset 14, -4
+ 285 0002 84B0     		sub	sp, sp, #16
+ 286              		.cfi_def_cfa_offset 24
+ 287 0004 00AF     		add	r7, sp, #0
+ 288              		.cfi_def_cfa_register 7
+ 289 0006 7860     		str	r0, [r7, #4]
+ 290 0008 3960     		str	r1, [r7]
+ 498:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         uint32 ssPolarity;
+ 499:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 500:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         /* Get position of the polarity bit associated with slave select line */
+ 501:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         ssPolarity = SCB_1_GET_SPI_CTRL_SSEL_POLARITY((uint32) 1u << slaveSelect);
+ 291              		.loc 1 501 0
+ 292 000a 7B68     		ldr	r3, [r7, #4]
+ 293 000c 0122     		mov	r2, #1
+ 294 000e 9A40     		lsl	r2, r2, r3
+ 295 0010 131C     		mov	r3, r2
+ 296 0012 1A02     		lsl	r2, r3, #8
+ 297 0014 F023     		mov	r3, #240
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 15
+
+
+ 298 0016 1B01     		lsl	r3, r3, #4
+ 299 0018 1340     		and	r3, r2
+ 300 001a FB60     		str	r3, [r7, #12]
+ 502:.\Generated_Source\PSoC4/SCB_1_SPI.c **** 
+ 503:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         if (0u != polarity)
+ 301              		.loc 1 503 0
+ 302 001c 3B68     		ldr	r3, [r7]
+ 303 001e 002B     		cmp	r3, #0
+ 304 0020 06D0     		beq	.L14
+ 504:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         {
+ 505:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_SPI_CTRL_REG |= (uint32)  ssPolarity;
+ 305              		.loc 1 505 0
+ 306 0022 084B     		ldr	r3, .L16
+ 307 0024 074A     		ldr	r2, .L16
+ 308 0026 1168     		ldr	r1, [r2]
+ 309 0028 FA68     		ldr	r2, [r7, #12]
+ 310 002a 0A43     		orr	r2, r1
+ 311 002c 1A60     		str	r2, [r3]
+ 312 002e 06E0     		b	.L13
+ 313              	.L14:
+ 506:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         }
+ 507:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         else
+ 508:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         {
+ 509:.\Generated_Source\PSoC4/SCB_1_SPI.c ****             SCB_1_SPI_CTRL_REG &= (uint32) ~ssPolarity;
+ 314              		.loc 1 509 0
+ 315 0030 044B     		ldr	r3, .L16
+ 316 0032 044A     		ldr	r2, .L16
+ 317 0034 1268     		ldr	r2, [r2]
+ 318 0036 F968     		ldr	r1, [r7, #12]
+ 319 0038 C943     		mvn	r1, r1
+ 320 003a 0A40     		and	r2, r1
+ 321 003c 1A60     		str	r2, [r3]
+ 322              	.L13:
+ 510:.\Generated_Source\PSoC4/SCB_1_SPI.c ****         }
+ 511:.\Generated_Source\PSoC4/SCB_1_SPI.c ****     }
+ 323              		.loc 1 511 0
+ 324 003e BD46     		mov	sp, r7
+ 325 0040 04B0     		add	sp, sp, #16
+ 326              		@ sp needed
+ 327 0042 80BD     		pop	{r7, pc}
+ 328              	.L17:
+ 329              		.align	2
+ 330              	.L16:
+ 331 0044 20002440 		.word	1076101152
+ 332              		.cfi_endproc
+ 333              	.LFE6:
+ 334              		.size	SCB_1_SpiSetSlaveSelectPolarity, .-SCB_1_SpiSetSlaveSelectPolarity
+ 335              		.text
+ 336              	.Letext0:
+ 337              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 338              		.section	.debug_info,"",%progbits
+ 339              	.Ldebug_info0:
+ 340 0000 4A010000 		.4byte	0x14a
+ 341 0004 0400     		.2byte	0x4
+ 342 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 343 000a 04       		.byte	0x4
+ 344 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 16
+
+
+ 345 000c CC000000 		.4byte	.LASF22
+ 346 0010 01       		.byte	0x1
+ 347 0011 55000000 		.4byte	.LASF23
+ 348 0015 C0010000 		.4byte	.LASF24
+ 349 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 350 001d 00000000 		.4byte	0
+ 351 0021 00000000 		.4byte	.Ldebug_line0
+ 352 0025 02       		.uleb128 0x2
+ 353 0026 01       		.byte	0x1
+ 354 0027 06       		.byte	0x6
+ 355 0028 B4010000 		.4byte	.LASF0
+ 356 002c 02       		.uleb128 0x2
+ 357 002d 01       		.byte	0x1
+ 358 002e 08       		.byte	0x8
+ 359 002f 5A010000 		.4byte	.LASF1
+ 360 0033 02       		.uleb128 0x2
+ 361 0034 02       		.byte	0x2
+ 362 0035 05       		.byte	0x5
+ 363 0036 09020000 		.4byte	.LASF2
+ 364 003a 02       		.uleb128 0x2
+ 365 003b 02       		.byte	0x2
+ 366 003c 07       		.byte	0x7
+ 367 003d A1010000 		.4byte	.LASF3
+ 368 0041 02       		.uleb128 0x2
+ 369 0042 04       		.byte	0x4
+ 370 0043 05       		.byte	0x5
+ 371 0044 6D010000 		.4byte	.LASF4
+ 372 0048 02       		.uleb128 0x2
+ 373 0049 04       		.byte	0x4
+ 374 004a 07       		.byte	0x7
+ 375 004b 7A000000 		.4byte	.LASF5
+ 376 004f 02       		.uleb128 0x2
+ 377 0050 08       		.byte	0x8
+ 378 0051 05       		.byte	0x5
+ 379 0052 00000000 		.4byte	.LASF6
+ 380 0056 02       		.uleb128 0x2
+ 381 0057 08       		.byte	0x8
+ 382 0058 07       		.byte	0x7
+ 383 0059 8C000000 		.4byte	.LASF7
+ 384 005d 03       		.uleb128 0x3
+ 385 005e 04       		.byte	0x4
+ 386 005f 05       		.byte	0x5
+ 387 0060 696E7400 		.ascii	"int\000"
+ 388 0064 02       		.uleb128 0x2
+ 389 0065 04       		.byte	0x4
+ 390 0066 07       		.byte	0x7
+ 391 0067 20000000 		.4byte	.LASF8
+ 392 006b 04       		.uleb128 0x4
+ 393 006c 0E000000 		.4byte	.LASF12
+ 394 0070 02       		.byte	0x2
+ 395 0071 3A01     		.2byte	0x13a
+ 396 0073 48000000 		.4byte	0x48
+ 397 0077 02       		.uleb128 0x2
+ 398 0078 04       		.byte	0x4
+ 399 0079 04       		.byte	0x4
+ 400 007a FB010000 		.4byte	.LASF9
+ 401 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 17
+
+
+ 402 007f 08       		.byte	0x8
+ 403 0080 04       		.byte	0x4
+ 404 0081 76010000 		.4byte	.LASF10
+ 405 0085 02       		.uleb128 0x2
+ 406 0086 01       		.byte	0x1
+ 407 0087 08       		.byte	0x8
+ 408 0088 68010000 		.4byte	.LASF11
+ 409 008c 04       		.uleb128 0x4
+ 410 008d 9B010000 		.4byte	.LASF13
+ 411 0091 02       		.byte	0x2
+ 412 0092 E401     		.2byte	0x1e4
+ 413 0094 98000000 		.4byte	0x98
+ 414 0098 05       		.uleb128 0x5
+ 415 0099 6B000000 		.4byte	0x6b
+ 416 009d 02       		.uleb128 0x2
+ 417 009e 04       		.byte	0x4
+ 418 009f 07       		.byte	0x7
+ 419 00a0 13020000 		.4byte	.LASF14
+ 420 00a4 06       		.uleb128 0x6
+ 421 00a5 2D000000 		.4byte	.LASF15
+ 422 00a9 01       		.byte	0x1
+ 423 00aa AB       		.byte	0xab
+ 424 00ab 00000000 		.4byte	.LFB2
+ 425 00af 94000000 		.4byte	.LFE2-.LFB2
+ 426 00b3 01       		.uleb128 0x1
+ 427 00b4 9C       		.byte	0x9c
+ 428 00b5 07       		.uleb128 0x7
+ 429 00b6 E7010000 		.4byte	.LASF16
+ 430 00ba 01       		.byte	0x1
+ 431 00bb EA       		.byte	0xea
+ 432 00bc 00000000 		.4byte	.LFB3
+ 433 00c0 28000000 		.4byte	.LFE3-.LFB3
+ 434 00c4 01       		.uleb128 0x1
+ 435 00c5 9C       		.byte	0x9c
+ 436 00c6 08       		.uleb128 0x8
+ 437 00c7 3B000000 		.4byte	.LASF17
+ 438 00cb 01       		.byte	0x1
+ 439 00cc 4301     		.2byte	0x143
+ 440 00ce 00000000 		.4byte	.LFB4
+ 441 00d2 58000000 		.4byte	.LFE4-.LFB4
+ 442 00d6 01       		.uleb128 0x1
+ 443 00d7 9C       		.byte	0x9c
+ 444 00d8 09       		.uleb128 0x9
+ 445 00d9 7D010000 		.4byte	.LASF25
+ 446 00dd 01       		.byte	0x1
+ 447 00de C601     		.2byte	0x1c6
+ 448 00e0 00000000 		.4byte	.LFB5
+ 449 00e4 3C000000 		.4byte	.LFE5-.LFB5
+ 450 00e8 01       		.uleb128 0x1
+ 451 00e9 9C       		.byte	0x9c
+ 452 00ea 0D010000 		.4byte	0x10d
+ 453 00ee 0A       		.uleb128 0xa
+ 454 00ef 49000000 		.4byte	.LASF18
+ 455 00f3 01       		.byte	0x1
+ 456 00f4 C601     		.2byte	0x1c6
+ 457 00f6 6B000000 		.4byte	0x6b
+ 458 00fa 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 18
+
+
+ 459 00fb 91       		.byte	0x91
+ 460 00fc 6C       		.sleb128 -20
+ 461 00fd 0B       		.uleb128 0xb
+ 462 00fe 01020000 		.4byte	.LASF20
+ 463 0102 01       		.byte	0x1
+ 464 0103 C801     		.2byte	0x1c8
+ 465 0105 6B000000 		.4byte	0x6b
+ 466 0109 02       		.uleb128 0x2
+ 467 010a 91       		.byte	0x91
+ 468 010b 74       		.sleb128 -12
+ 469 010c 00       		.byte	0
+ 470 010d 0C       		.uleb128 0xc
+ 471 010e A3000000 		.4byte	.LASF26
+ 472 0112 01       		.byte	0x1
+ 473 0113 F001     		.2byte	0x1f0
+ 474 0115 00000000 		.4byte	.LFB6
+ 475 0119 48000000 		.4byte	.LFE6-.LFB6
+ 476 011d 01       		.uleb128 0x1
+ 477 011e 9C       		.byte	0x9c
+ 478 011f 0A       		.uleb128 0xa
+ 479 0120 49000000 		.4byte	.LASF18
+ 480 0124 01       		.byte	0x1
+ 481 0125 F001     		.2byte	0x1f0
+ 482 0127 6B000000 		.4byte	0x6b
+ 483 012b 02       		.uleb128 0x2
+ 484 012c 91       		.byte	0x91
+ 485 012d 6C       		.sleb128 -20
+ 486 012e 0A       		.uleb128 0xa
+ 487 012f C3000000 		.4byte	.LASF19
+ 488 0133 01       		.byte	0x1
+ 489 0134 F001     		.2byte	0x1f0
+ 490 0136 6B000000 		.4byte	0x6b
+ 491 013a 02       		.uleb128 0x2
+ 492 013b 91       		.byte	0x91
+ 493 013c 68       		.sleb128 -24
+ 494 013d 0B       		.uleb128 0xb
+ 495 013e 15000000 		.4byte	.LASF21
+ 496 0142 01       		.byte	0x1
+ 497 0143 F201     		.2byte	0x1f2
+ 498 0145 6B000000 		.4byte	0x6b
+ 499 0149 02       		.uleb128 0x2
+ 500 014a 91       		.byte	0x91
+ 501 014b 74       		.sleb128 -12
+ 502 014c 00       		.byte	0
+ 503 014d 00       		.byte	0
+ 504              		.section	.debug_abbrev,"",%progbits
+ 505              	.Ldebug_abbrev0:
+ 506 0000 01       		.uleb128 0x1
+ 507 0001 11       		.uleb128 0x11
+ 508 0002 01       		.byte	0x1
+ 509 0003 25       		.uleb128 0x25
+ 510 0004 0E       		.uleb128 0xe
+ 511 0005 13       		.uleb128 0x13
+ 512 0006 0B       		.uleb128 0xb
+ 513 0007 03       		.uleb128 0x3
+ 514 0008 0E       		.uleb128 0xe
+ 515 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 19
+
+
+ 516 000a 0E       		.uleb128 0xe
+ 517 000b 55       		.uleb128 0x55
+ 518 000c 17       		.uleb128 0x17
+ 519 000d 11       		.uleb128 0x11
+ 520 000e 01       		.uleb128 0x1
+ 521 000f 10       		.uleb128 0x10
+ 522 0010 17       		.uleb128 0x17
+ 523 0011 00       		.byte	0
+ 524 0012 00       		.byte	0
+ 525 0013 02       		.uleb128 0x2
+ 526 0014 24       		.uleb128 0x24
+ 527 0015 00       		.byte	0
+ 528 0016 0B       		.uleb128 0xb
+ 529 0017 0B       		.uleb128 0xb
+ 530 0018 3E       		.uleb128 0x3e
+ 531 0019 0B       		.uleb128 0xb
+ 532 001a 03       		.uleb128 0x3
+ 533 001b 0E       		.uleb128 0xe
+ 534 001c 00       		.byte	0
+ 535 001d 00       		.byte	0
+ 536 001e 03       		.uleb128 0x3
+ 537 001f 24       		.uleb128 0x24
+ 538 0020 00       		.byte	0
+ 539 0021 0B       		.uleb128 0xb
+ 540 0022 0B       		.uleb128 0xb
+ 541 0023 3E       		.uleb128 0x3e
+ 542 0024 0B       		.uleb128 0xb
+ 543 0025 03       		.uleb128 0x3
+ 544 0026 08       		.uleb128 0x8
+ 545 0027 00       		.byte	0
+ 546 0028 00       		.byte	0
+ 547 0029 04       		.uleb128 0x4
+ 548 002a 16       		.uleb128 0x16
+ 549 002b 00       		.byte	0
+ 550 002c 03       		.uleb128 0x3
+ 551 002d 0E       		.uleb128 0xe
+ 552 002e 3A       		.uleb128 0x3a
+ 553 002f 0B       		.uleb128 0xb
+ 554 0030 3B       		.uleb128 0x3b
+ 555 0031 05       		.uleb128 0x5
+ 556 0032 49       		.uleb128 0x49
+ 557 0033 13       		.uleb128 0x13
+ 558 0034 00       		.byte	0
+ 559 0035 00       		.byte	0
+ 560 0036 05       		.uleb128 0x5
+ 561 0037 35       		.uleb128 0x35
+ 562 0038 00       		.byte	0
+ 563 0039 49       		.uleb128 0x49
+ 564 003a 13       		.uleb128 0x13
+ 565 003b 00       		.byte	0
+ 566 003c 00       		.byte	0
+ 567 003d 06       		.uleb128 0x6
+ 568 003e 2E       		.uleb128 0x2e
+ 569 003f 00       		.byte	0
+ 570 0040 3F       		.uleb128 0x3f
+ 571 0041 19       		.uleb128 0x19
+ 572 0042 03       		.uleb128 0x3
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 20
+
+
+ 573 0043 0E       		.uleb128 0xe
+ 574 0044 3A       		.uleb128 0x3a
+ 575 0045 0B       		.uleb128 0xb
+ 576 0046 3B       		.uleb128 0x3b
+ 577 0047 0B       		.uleb128 0xb
+ 578 0048 27       		.uleb128 0x27
+ 579 0049 19       		.uleb128 0x19
+ 580 004a 11       		.uleb128 0x11
+ 581 004b 01       		.uleb128 0x1
+ 582 004c 12       		.uleb128 0x12
+ 583 004d 06       		.uleb128 0x6
+ 584 004e 40       		.uleb128 0x40
+ 585 004f 18       		.uleb128 0x18
+ 586 0050 9642     		.uleb128 0x2116
+ 587 0052 19       		.uleb128 0x19
+ 588 0053 00       		.byte	0
+ 589 0054 00       		.byte	0
+ 590 0055 07       		.uleb128 0x7
+ 591 0056 2E       		.uleb128 0x2e
+ 592 0057 00       		.byte	0
+ 593 0058 3F       		.uleb128 0x3f
+ 594 0059 19       		.uleb128 0x19
+ 595 005a 03       		.uleb128 0x3
+ 596 005b 0E       		.uleb128 0xe
+ 597 005c 3A       		.uleb128 0x3a
+ 598 005d 0B       		.uleb128 0xb
+ 599 005e 3B       		.uleb128 0x3b
+ 600 005f 0B       		.uleb128 0xb
+ 601 0060 27       		.uleb128 0x27
+ 602 0061 19       		.uleb128 0x19
+ 603 0062 11       		.uleb128 0x11
+ 604 0063 01       		.uleb128 0x1
+ 605 0064 12       		.uleb128 0x12
+ 606 0065 06       		.uleb128 0x6
+ 607 0066 40       		.uleb128 0x40
+ 608 0067 18       		.uleb128 0x18
+ 609 0068 9742     		.uleb128 0x2117
+ 610 006a 19       		.uleb128 0x19
+ 611 006b 00       		.byte	0
+ 612 006c 00       		.byte	0
+ 613 006d 08       		.uleb128 0x8
+ 614 006e 2E       		.uleb128 0x2e
+ 615 006f 00       		.byte	0
+ 616 0070 3F       		.uleb128 0x3f
+ 617 0071 19       		.uleb128 0x19
+ 618 0072 03       		.uleb128 0x3
+ 619 0073 0E       		.uleb128 0xe
+ 620 0074 3A       		.uleb128 0x3a
+ 621 0075 0B       		.uleb128 0xb
+ 622 0076 3B       		.uleb128 0x3b
+ 623 0077 05       		.uleb128 0x5
+ 624 0078 27       		.uleb128 0x27
+ 625 0079 19       		.uleb128 0x19
+ 626 007a 11       		.uleb128 0x11
+ 627 007b 01       		.uleb128 0x1
+ 628 007c 12       		.uleb128 0x12
+ 629 007d 06       		.uleb128 0x6
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 21
+
+
+ 630 007e 40       		.uleb128 0x40
+ 631 007f 18       		.uleb128 0x18
+ 632 0080 9642     		.uleb128 0x2116
+ 633 0082 19       		.uleb128 0x19
+ 634 0083 00       		.byte	0
+ 635 0084 00       		.byte	0
+ 636 0085 09       		.uleb128 0x9
+ 637 0086 2E       		.uleb128 0x2e
+ 638 0087 01       		.byte	0x1
+ 639 0088 3F       		.uleb128 0x3f
+ 640 0089 19       		.uleb128 0x19
+ 641 008a 03       		.uleb128 0x3
+ 642 008b 0E       		.uleb128 0xe
+ 643 008c 3A       		.uleb128 0x3a
+ 644 008d 0B       		.uleb128 0xb
+ 645 008e 3B       		.uleb128 0x3b
+ 646 008f 05       		.uleb128 0x5
+ 647 0090 27       		.uleb128 0x27
+ 648 0091 19       		.uleb128 0x19
+ 649 0092 11       		.uleb128 0x11
+ 650 0093 01       		.uleb128 0x1
+ 651 0094 12       		.uleb128 0x12
+ 652 0095 06       		.uleb128 0x6
+ 653 0096 40       		.uleb128 0x40
+ 654 0097 18       		.uleb128 0x18
+ 655 0098 9742     		.uleb128 0x2117
+ 656 009a 19       		.uleb128 0x19
+ 657 009b 01       		.uleb128 0x1
+ 658 009c 13       		.uleb128 0x13
+ 659 009d 00       		.byte	0
+ 660 009e 00       		.byte	0
+ 661 009f 0A       		.uleb128 0xa
+ 662 00a0 05       		.uleb128 0x5
+ 663 00a1 00       		.byte	0
+ 664 00a2 03       		.uleb128 0x3
+ 665 00a3 0E       		.uleb128 0xe
+ 666 00a4 3A       		.uleb128 0x3a
+ 667 00a5 0B       		.uleb128 0xb
+ 668 00a6 3B       		.uleb128 0x3b
+ 669 00a7 05       		.uleb128 0x5
+ 670 00a8 49       		.uleb128 0x49
+ 671 00a9 13       		.uleb128 0x13
+ 672 00aa 02       		.uleb128 0x2
+ 673 00ab 18       		.uleb128 0x18
+ 674 00ac 00       		.byte	0
+ 675 00ad 00       		.byte	0
+ 676 00ae 0B       		.uleb128 0xb
+ 677 00af 34       		.uleb128 0x34
+ 678 00b0 00       		.byte	0
+ 679 00b1 03       		.uleb128 0x3
+ 680 00b2 0E       		.uleb128 0xe
+ 681 00b3 3A       		.uleb128 0x3a
+ 682 00b4 0B       		.uleb128 0xb
+ 683 00b5 3B       		.uleb128 0x3b
+ 684 00b6 05       		.uleb128 0x5
+ 685 00b7 49       		.uleb128 0x49
+ 686 00b8 13       		.uleb128 0x13
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 22
+
+
+ 687 00b9 02       		.uleb128 0x2
+ 688 00ba 18       		.uleb128 0x18
+ 689 00bb 00       		.byte	0
+ 690 00bc 00       		.byte	0
+ 691 00bd 0C       		.uleb128 0xc
+ 692 00be 2E       		.uleb128 0x2e
+ 693 00bf 01       		.byte	0x1
+ 694 00c0 3F       		.uleb128 0x3f
+ 695 00c1 19       		.uleb128 0x19
+ 696 00c2 03       		.uleb128 0x3
+ 697 00c3 0E       		.uleb128 0xe
+ 698 00c4 3A       		.uleb128 0x3a
+ 699 00c5 0B       		.uleb128 0xb
+ 700 00c6 3B       		.uleb128 0x3b
+ 701 00c7 05       		.uleb128 0x5
+ 702 00c8 27       		.uleb128 0x27
+ 703 00c9 19       		.uleb128 0x19
+ 704 00ca 11       		.uleb128 0x11
+ 705 00cb 01       		.uleb128 0x1
+ 706 00cc 12       		.uleb128 0x12
+ 707 00cd 06       		.uleb128 0x6
+ 708 00ce 40       		.uleb128 0x40
+ 709 00cf 18       		.uleb128 0x18
+ 710 00d0 9742     		.uleb128 0x2117
+ 711 00d2 19       		.uleb128 0x19
+ 712 00d3 00       		.byte	0
+ 713 00d4 00       		.byte	0
+ 714 00d5 00       		.byte	0
+ 715              		.section	.debug_aranges,"",%progbits
+ 716 0000 3C000000 		.4byte	0x3c
+ 717 0004 0200     		.2byte	0x2
+ 718 0006 00000000 		.4byte	.Ldebug_info0
+ 719 000a 04       		.byte	0x4
+ 720 000b 00       		.byte	0
+ 721 000c 0000     		.2byte	0
+ 722 000e 0000     		.2byte	0
+ 723 0010 00000000 		.4byte	.LFB2
+ 724 0014 94000000 		.4byte	.LFE2-.LFB2
+ 725 0018 00000000 		.4byte	.LFB3
+ 726 001c 28000000 		.4byte	.LFE3-.LFB3
+ 727 0020 00000000 		.4byte	.LFB4
+ 728 0024 58000000 		.4byte	.LFE4-.LFB4
+ 729 0028 00000000 		.4byte	.LFB5
+ 730 002c 3C000000 		.4byte	.LFE5-.LFB5
+ 731 0030 00000000 		.4byte	.LFB6
+ 732 0034 48000000 		.4byte	.LFE6-.LFB6
+ 733 0038 00000000 		.4byte	0
+ 734 003c 00000000 		.4byte	0
+ 735              		.section	.debug_ranges,"",%progbits
+ 736              	.Ldebug_ranges0:
+ 737 0000 00000000 		.4byte	.LFB2
+ 738 0004 94000000 		.4byte	.LFE2
+ 739 0008 00000000 		.4byte	.LFB3
+ 740 000c 28000000 		.4byte	.LFE3
+ 741 0010 00000000 		.4byte	.LFB4
+ 742 0014 58000000 		.4byte	.LFE4
+ 743 0018 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 23
+
+
+ 744 001c 3C000000 		.4byte	.LFE5
+ 745 0020 00000000 		.4byte	.LFB6
+ 746 0024 48000000 		.4byte	.LFE6
+ 747 0028 00000000 		.4byte	0
+ 748 002c 00000000 		.4byte	0
+ 749              		.section	.debug_line,"",%progbits
+ 750              	.Ldebug_line0:
+ 751 0000 E1000000 		.section	.debug_str,"MS",%progbits,1
+ 751      02005F00 
+ 751      00000201 
+ 751      FB0E0D00 
+ 751      01010101 
+ 752              	.LASF6:
+ 753 0000 6C6F6E67 		.ascii	"long long int\000"
+ 753      206C6F6E 
+ 753      6720696E 
+ 753      7400
+ 754              	.LASF12:
+ 755 000e 75696E74 		.ascii	"uint32\000"
+ 755      333200
+ 756              	.LASF21:
+ 757 0015 7373506F 		.ascii	"ssPolarity\000"
+ 757      6C617269 
+ 757      747900
+ 758              	.LASF8:
+ 759 0020 756E7369 		.ascii	"unsigned int\000"
+ 759      676E6564 
+ 759      20696E74 
+ 759      00
+ 760              	.LASF15:
+ 761 002d 5343425F 		.ascii	"SCB_1_SpiInit\000"
+ 761      315F5370 
+ 761      69496E69 
+ 761      7400
+ 762              	.LASF17:
+ 763 003b 5343425F 		.ascii	"SCB_1_SpiStop\000"
+ 763      315F5370 
+ 763      6953746F 
+ 763      7000
+ 764              	.LASF18:
+ 765 0049 736C6176 		.ascii	"slaveSelect\000"
+ 765      6553656C 
+ 765      65637400 
+ 766              	.LASF23:
+ 767 0055 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\SCB_1_SPI.c\000"
+ 767      6E657261 
+ 767      7465645F 
+ 767      536F7572 
+ 767      63655C50 
+ 768              	.LASF5:
+ 769 007a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 769      20756E73 
+ 769      69676E65 
+ 769      6420696E 
+ 769      7400
+ 770              	.LASF7:
+ 771 008c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 24
+
+
+ 771      206C6F6E 
+ 771      6720756E 
+ 771      7369676E 
+ 771      65642069 
+ 772              	.LASF26:
+ 773 00a3 5343425F 		.ascii	"SCB_1_SpiSetSlaveSelectPolarity\000"
+ 773      315F5370 
+ 773      69536574 
+ 773      536C6176 
+ 773      6553656C 
+ 774              	.LASF19:
+ 775 00c3 706F6C61 		.ascii	"polarity\000"
+ 775      72697479 
+ 775      00
+ 776              	.LASF22:
+ 777 00cc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 777      4320342E 
+ 777      392E3320 
+ 777      32303135 
+ 777      30333033 
+ 778 00ff 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 778      20726576 
+ 778      6973696F 
+ 778      6E203232 
+ 778      31323230 
+ 779 0132 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 779      66756E63 
+ 779      74696F6E 
+ 779      2D736563 
+ 779      74696F6E 
+ 780              	.LASF1:
+ 781 015a 756E7369 		.ascii	"unsigned char\000"
+ 781      676E6564 
+ 781      20636861 
+ 781      7200
+ 782              	.LASF11:
+ 783 0168 63686172 		.ascii	"char\000"
+ 783      00
+ 784              	.LASF4:
+ 785 016d 6C6F6E67 		.ascii	"long int\000"
+ 785      20696E74 
+ 785      00
+ 786              	.LASF10:
+ 787 0176 646F7562 		.ascii	"double\000"
+ 787      6C6500
+ 788              	.LASF25:
+ 789 017d 5343425F 		.ascii	"SCB_1_SpiSetActiveSlaveSelect\000"
+ 789      315F5370 
+ 789      69536574 
+ 789      41637469 
+ 789      7665536C 
+ 790              	.LASF13:
+ 791 019b 72656733 		.ascii	"reg32\000"
+ 791      3200
+ 792              	.LASF3:
+ 793 01a1 73686F72 		.ascii	"short unsigned int\000"
+ 793      7420756E 
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccNR5LLI.s 			page 25
+
+
+ 793      7369676E 
+ 793      65642069 
+ 793      6E7400
+ 794              	.LASF0:
+ 795 01b4 7369676E 		.ascii	"signed char\000"
+ 795      65642063 
+ 795      68617200 
+ 796              	.LASF24:
+ 797 01c0 453A5C43 		.ascii	"E:\\Cypress\\FirstApp\\TransferByte.cydsn\000"
+ 797      79707265 
+ 797      73735C46 
+ 797      69727374 
+ 797      4170705C 
+ 798              	.LASF16:
+ 799 01e7 5343425F 		.ascii	"SCB_1_SpiPostEnable\000"
+ 799      315F5370 
+ 799      69506F73 
+ 799      74456E61 
+ 799      626C6500 
+ 800              	.LASF9:
+ 801 01fb 666C6F61 		.ascii	"float\000"
+ 801      7400
+ 802              	.LASF20:
+ 803 0201 73706943 		.ascii	"spiCtrl\000"
+ 803      74726C00 
+ 804              	.LASF2:
+ 805 0209 73686F72 		.ascii	"short int\000"
+ 805      7420696E 
+ 805      7400
+ 806              	.LASF14:
+ 807 0213 73697A65 		.ascii	"sizetype\000"
+ 807      74797065 
+ 807      00
+ 808              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

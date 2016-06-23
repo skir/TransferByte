@@ -1,0 +1,690 @@
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.main,"ax",%progbits
+  18              		.align	2
+  19              		.global	main
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	main, %function
+  23              	main:
+  24              	.LFB37:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <main.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** extern uint8 sendNotifications;	
+  15:.\main.c      **** 
+  16:.\main.c      **** extern uint8 deviceConnected;
+  17:.\main.c      **** 
+  18:.\main.c      **** /* 'connectionHandle' stores connection parameters */
+  19:.\main.c      **** extern CYBLE_CONN_HANDLE_T  connectionHandle;
+  20:.\main.c      **** 
+  21:.\main.c      **** int main()
+  22:.\main.c      **** {
+  26              		.loc 1 22 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 00AF     		add	r7, sp, #0
+  33              		.cfi_def_cfa_register 7
+  23:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  24:.\main.c      ****     InitializeSystem();
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 2
+
+
+  34              		.loc 1 24 0
+  35 0004 FFF7FEFF 		bl	InitializeSystem
+  36              	.L3:
+  25:.\main.c      ****     for(;;)
+  26:.\main.c      ****     {
+  27:.\main.c      ****         CyBle_ProcessEvents();
+  37              		.loc 1 27 0
+  38 0008 FFF7FEFF 		bl	CyBle_ProcessEvents
+  28:.\main.c      ****         if(TRUE == deviceConnected)
+  39              		.loc 1 28 0
+  40 000c 054B     		ldr	r3, .L4
+  41 000e 1B78     		ldrb	r3, [r3]
+  42 0010 012B     		cmp	r3, #1
+  43 0012 05D1     		bne	.L2
+  29:.\main.c      **** 		{
+  30:.\main.c      **** 			
+  31:.\main.c      **** 			/* Send CapSense Slider data when respective notification is enabled */
+  32:.\main.c      **** 			if(sendNotifications == TRUE)
+  44              		.loc 1 32 0
+  45 0014 044B     		ldr	r3, .L4+4
+  46 0016 1B78     		ldrb	r3, [r3]
+  47 0018 012B     		cmp	r3, #1
+  48 001a 01D1     		bne	.L2
+  33:.\main.c      **** 			{
+  34:.\main.c      **** 				//if(CYBLE_BLESS_STATE_ECO_STABLE ==CyBle_GetBleSsState())
+  35:.\main.c      **** 				//{
+  36:.\main.c      **** 					/* Check for CapSense slider swipe and send data accordingly */
+  37:.\main.c      **** 					HandleData();
+  49              		.loc 1 37 0
+  50 001c FFF7FEFF 		bl	HandleData
+  51              	.L2:
+  38:.\main.c      **** 				//}
+  39:.\main.c      **** 			}
+  40:.\main.c      **** 		}
+  41:.\main.c      ****     }
+  52              		.loc 1 41 0
+  53 0020 F2E7     		b	.L3
+  54              	.L5:
+  55 0022 C046     		.align	2
+  56              	.L4:
+  57 0024 00000000 		.word	deviceConnected
+  58 0028 00000000 		.word	sendNotifications
+  59              		.cfi_endproc
+  60              	.LFE37:
+  61              		.size	main, .-main
+  62              		.section	.text.InitializeSystem,"ax",%progbits
+  63              		.align	2
+  64              		.global	InitializeSystem
+  65              		.code	16
+  66              		.thumb_func
+  67              		.type	InitializeSystem, %function
+  68              	InitializeSystem:
+  69              	.LFB38:
+  42:.\main.c      **** }
+  43:.\main.c      **** 
+  44:.\main.c      **** void InitializeSystem(void)
+  45:.\main.c      **** {
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 3
+
+
+  70              		.loc 1 45 0
+  71              		.cfi_startproc
+  72 0000 80B5     		push	{r7, lr}
+  73              		.cfi_def_cfa_offset 8
+  74              		.cfi_offset 7, -8
+  75              		.cfi_offset 14, -4
+  76 0002 00AF     		add	r7, sp, #0
+  77              		.cfi_def_cfa_register 7
+  46:.\main.c      **** 	/* Enable global interrupt mask */
+  47:.\main.c      **** 	CyGlobalIntEnable; 
+  78              		.loc 1 47 0
+  79              	@ 47 ".\main.c" 1
+  80 0004 62B6     		CPSIE   i
+  81              	@ 0 "" 2
+  48:.\main.c      **** 
+  49:.\main.c      **** 	/* Start BLE component and register the CustomEventHandler function. This 
+  50:.\main.c      **** 	* function exposes the events from BLE component for application use */
+  51:.\main.c      ****     CyBle_Start(GenericAppEventHandler);	
+  82              		.loc 1 51 0
+  83              		.code	16
+  84 0006 034B     		ldr	r3, .L7
+  85 0008 181C     		mov	r0, r3
+  86 000a FFF7FEFF 		bl	CyBle_Start
+  52:.\main.c      **** }
+  87              		.loc 1 52 0
+  88 000e BD46     		mov	sp, r7
+  89              		@ sp needed
+  90 0010 80BD     		pop	{r7, pc}
+  91              	.L8:
+  92 0012 C046     		.align	2
+  93              	.L7:
+  94 0014 00000000 		.word	GenericAppEventHandler
+  95              		.cfi_endproc
+  96              	.LFE38:
+  97              		.size	InitializeSystem, .-InitializeSystem
+  98              		.section	.text.HandleData,"ax",%progbits
+  99              		.align	2
+ 100              		.global	HandleData
+ 101              		.code	16
+ 102              		.thumb_func
+ 103              		.type	HandleData, %function
+ 104              	HandleData:
+ 105              	.LFB39:
+  53:.\main.c      **** 
+  54:.\main.c      **** void HandleData(void)
+  55:.\main.c      **** {    
+ 106              		.loc 1 55 0
+ 107              		.cfi_startproc
+ 108 0000 80B5     		push	{r7, lr}
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 7, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 82B0     		sub	sp, sp, #8
+ 113              		.cfi_def_cfa_offset 16
+ 114 0004 00AF     		add	r7, sp, #0
+ 115              		.cfi_def_cfa_register 7
+  56:.\main.c      **** 	static uint8 lastData;	
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 4
+
+
+  57:.\main.c      **** 	
+  58:.\main.c      **** 	uint8 newData = 1;
+ 116              		.loc 1 58 0
+ 117 0006 FB1D     		add	r3, r7, #7
+ 118 0008 0122     		mov	r2, #1
+ 119 000a 1A70     		strb	r2, [r3]
+  59:.\main.c      **** 	
+  60:.\main.c      ****     lastData += newData;
+ 120              		.loc 1 60 0
+ 121 000c 074B     		ldr	r3, .L10
+ 122 000e 1A78     		ldrb	r2, [r3]
+ 123 0010 FB1D     		add	r3, r7, #7
+ 124 0012 1B78     		ldrb	r3, [r3]
+ 125 0014 D318     		add	r3, r2, r3
+ 126 0016 DAB2     		uxtb	r2, r3
+ 127 0018 044B     		ldr	r3, .L10
+ 128 001a 1A70     		strb	r2, [r3]
+  61:.\main.c      **** 	SendDataOverNotification(lastData);
+ 129              		.loc 1 61 0
+ 130 001c 034B     		ldr	r3, .L10
+ 131 001e 1B78     		ldrb	r3, [r3]
+ 132 0020 181C     		mov	r0, r3
+ 133 0022 FFF7FEFF 		bl	SendDataOverNotification
+  62:.\main.c      **** }
+ 134              		.loc 1 62 0
+ 135 0026 BD46     		mov	sp, r7
+ 136 0028 02B0     		add	sp, sp, #8
+ 137              		@ sp needed
+ 138 002a 80BD     		pop	{r7, pc}
+ 139              	.L11:
+ 140              		.align	2
+ 141              	.L10:
+ 142 002c 00000000 		.word	lastData.7060
+ 143              		.cfi_endproc
+ 144              	.LFE39:
+ 145              		.size	HandleData, .-HandleData
+ 146              		.bss
+ 147              	lastData.7060:
+ 148 0000 00       		.space	1
+ 149              		.text
+ 150              	.Letext0:
+ 151              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 152              		.section	.debug_info,"",%progbits
+ 153              	.Ldebug_info0:
+ 154 0000 01010000 		.4byte	0x101
+ 155 0004 0400     		.2byte	0x4
+ 156 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 157 000a 04       		.byte	0x4
+ 158 000b 01       		.uleb128 0x1
+ 159 000c 0E000000 		.4byte	.LASF19
+ 160 0010 01       		.byte	0x1
+ 161 0011 5D010000 		.4byte	.LASF20
+ 162 0015 01010000 		.4byte	.LASF21
+ 163 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 164 001d 00000000 		.4byte	0
+ 165 0021 00000000 		.4byte	.Ldebug_line0
+ 166 0025 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 5
+
+
+ 167 0026 01       		.byte	0x1
+ 168 0027 06       		.byte	0x6
+ 169 0028 80010000 		.4byte	.LASF0
+ 170 002c 02       		.uleb128 0x2
+ 171 002d 01       		.byte	0x1
+ 172 002e 08       		.byte	0x8
+ 173 002f 36010000 		.4byte	.LASF1
+ 174 0033 02       		.uleb128 0x2
+ 175 0034 02       		.byte	0x2
+ 176 0035 05       		.byte	0x5
+ 177 0036 A4010000 		.4byte	.LASF2
+ 178 003a 02       		.uleb128 0x2
+ 179 003b 02       		.byte	0x2
+ 180 003c 07       		.byte	0x7
+ 181 003d 6D010000 		.4byte	.LASF3
+ 182 0041 02       		.uleb128 0x2
+ 183 0042 04       		.byte	0x4
+ 184 0043 05       		.byte	0x5
+ 185 0044 54010000 		.4byte	.LASF4
+ 186 0048 02       		.uleb128 0x2
+ 187 0049 04       		.byte	0x4
+ 188 004a 07       		.byte	0x7
+ 189 004b C7000000 		.4byte	.LASF5
+ 190 004f 02       		.uleb128 0x2
+ 191 0050 08       		.byte	0x8
+ 192 0051 05       		.byte	0x5
+ 193 0052 00000000 		.4byte	.LASF6
+ 194 0056 02       		.uleb128 0x2
+ 195 0057 08       		.byte	0x8
+ 196 0058 07       		.byte	0x7
+ 197 0059 D9000000 		.4byte	.LASF7
+ 198 005d 03       		.uleb128 0x3
+ 199 005e 04       		.byte	0x4
+ 200 005f 05       		.byte	0x5
+ 201 0060 696E7400 		.ascii	"int\000"
+ 202 0064 02       		.uleb128 0x2
+ 203 0065 04       		.byte	0x4
+ 204 0066 07       		.byte	0x7
+ 205 0067 9C000000 		.4byte	.LASF8
+ 206 006b 04       		.uleb128 0x4
+ 207 006c C1000000 		.4byte	.LASF22
+ 208 0070 02       		.byte	0x2
+ 209 0071 3801     		.2byte	0x138
+ 210 0073 2C000000 		.4byte	0x2c
+ 211 0077 02       		.uleb128 0x2
+ 212 0078 04       		.byte	0x4
+ 213 0079 04       		.byte	0x4
+ 214 007a 9E010000 		.4byte	.LASF9
+ 215 007e 02       		.uleb128 0x2
+ 216 007f 08       		.byte	0x8
+ 217 0080 04       		.byte	0x4
+ 218 0081 66010000 		.4byte	.LASF10
+ 219 0085 02       		.uleb128 0x2
+ 220 0086 01       		.byte	0x1
+ 221 0087 08       		.byte	0x8
+ 222 0088 31010000 		.4byte	.LASF11
+ 223 008c 02       		.uleb128 0x2
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 6
+
+
+ 224 008d 04       		.byte	0x4
+ 225 008e 07       		.byte	0x7
+ 226 008f AE010000 		.4byte	.LASF12
+ 227 0093 05       		.uleb128 0x5
+ 228 0094 44010000 		.4byte	.LASF13
+ 229 0098 01       		.byte	0x1
+ 230 0099 15       		.byte	0x15
+ 231 009a 5D000000 		.4byte	0x5d
+ 232 009e 00000000 		.4byte	.LFB37
+ 233 00a2 2C000000 		.4byte	.LFE37-.LFB37
+ 234 00a6 01       		.uleb128 0x1
+ 235 00a7 9C       		.byte	0x9c
+ 236 00a8 06       		.uleb128 0x6
+ 237 00a9 F0000000 		.4byte	.LASF14
+ 238 00ad 01       		.byte	0x1
+ 239 00ae 2C       		.byte	0x2c
+ 240 00af 00000000 		.4byte	.LFB38
+ 241 00b3 18000000 		.4byte	.LFE38-.LFB38
+ 242 00b7 01       		.uleb128 0x1
+ 243 00b8 9C       		.byte	0x9c
+ 244 00b9 07       		.uleb128 0x7
+ 245 00ba 49010000 		.4byte	.LASF23
+ 246 00be 01       		.byte	0x1
+ 247 00bf 36       		.byte	0x36
+ 248 00c0 00000000 		.4byte	.LFB39
+ 249 00c4 30000000 		.4byte	.LFE39-.LFB39
+ 250 00c8 01       		.uleb128 0x1
+ 251 00c9 9C       		.byte	0x9c
+ 252 00ca EE000000 		.4byte	0xee
+ 253 00ce 08       		.uleb128 0x8
+ 254 00cf 28010000 		.4byte	.LASF15
+ 255 00d3 01       		.byte	0x1
+ 256 00d4 38       		.byte	0x38
+ 257 00d5 6B000000 		.4byte	0x6b
+ 258 00d9 05       		.uleb128 0x5
+ 259 00da 03       		.byte	0x3
+ 260 00db 00000000 		.4byte	lastData.7060
+ 261 00df 08       		.uleb128 0x8
+ 262 00e0 A9000000 		.4byte	.LASF16
+ 263 00e4 01       		.byte	0x1
+ 264 00e5 3A       		.byte	0x3a
+ 265 00e6 6B000000 		.4byte	0x6b
+ 266 00ea 02       		.uleb128 0x2
+ 267 00eb 91       		.byte	0x91
+ 268 00ec 77       		.sleb128 -9
+ 269 00ed 00       		.byte	0
+ 270 00ee 09       		.uleb128 0x9
+ 271 00ef 8C010000 		.4byte	.LASF17
+ 272 00f3 01       		.byte	0x1
+ 273 00f4 0E       		.byte	0xe
+ 274 00f5 6B000000 		.4byte	0x6b
+ 275 00f9 09       		.uleb128 0x9
+ 276 00fa B1000000 		.4byte	.LASF18
+ 277 00fe 01       		.byte	0x1
+ 278 00ff 10       		.byte	0x10
+ 279 0100 6B000000 		.4byte	0x6b
+ 280 0104 00       		.byte	0
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 7
+
+
+ 281              		.section	.debug_abbrev,"",%progbits
+ 282              	.Ldebug_abbrev0:
+ 283 0000 01       		.uleb128 0x1
+ 284 0001 11       		.uleb128 0x11
+ 285 0002 01       		.byte	0x1
+ 286 0003 25       		.uleb128 0x25
+ 287 0004 0E       		.uleb128 0xe
+ 288 0005 13       		.uleb128 0x13
+ 289 0006 0B       		.uleb128 0xb
+ 290 0007 03       		.uleb128 0x3
+ 291 0008 0E       		.uleb128 0xe
+ 292 0009 1B       		.uleb128 0x1b
+ 293 000a 0E       		.uleb128 0xe
+ 294 000b 55       		.uleb128 0x55
+ 295 000c 17       		.uleb128 0x17
+ 296 000d 11       		.uleb128 0x11
+ 297 000e 01       		.uleb128 0x1
+ 298 000f 10       		.uleb128 0x10
+ 299 0010 17       		.uleb128 0x17
+ 300 0011 00       		.byte	0
+ 301 0012 00       		.byte	0
+ 302 0013 02       		.uleb128 0x2
+ 303 0014 24       		.uleb128 0x24
+ 304 0015 00       		.byte	0
+ 305 0016 0B       		.uleb128 0xb
+ 306 0017 0B       		.uleb128 0xb
+ 307 0018 3E       		.uleb128 0x3e
+ 308 0019 0B       		.uleb128 0xb
+ 309 001a 03       		.uleb128 0x3
+ 310 001b 0E       		.uleb128 0xe
+ 311 001c 00       		.byte	0
+ 312 001d 00       		.byte	0
+ 313 001e 03       		.uleb128 0x3
+ 314 001f 24       		.uleb128 0x24
+ 315 0020 00       		.byte	0
+ 316 0021 0B       		.uleb128 0xb
+ 317 0022 0B       		.uleb128 0xb
+ 318 0023 3E       		.uleb128 0x3e
+ 319 0024 0B       		.uleb128 0xb
+ 320 0025 03       		.uleb128 0x3
+ 321 0026 08       		.uleb128 0x8
+ 322 0027 00       		.byte	0
+ 323 0028 00       		.byte	0
+ 324 0029 04       		.uleb128 0x4
+ 325 002a 16       		.uleb128 0x16
+ 326 002b 00       		.byte	0
+ 327 002c 03       		.uleb128 0x3
+ 328 002d 0E       		.uleb128 0xe
+ 329 002e 3A       		.uleb128 0x3a
+ 330 002f 0B       		.uleb128 0xb
+ 331 0030 3B       		.uleb128 0x3b
+ 332 0031 05       		.uleb128 0x5
+ 333 0032 49       		.uleb128 0x49
+ 334 0033 13       		.uleb128 0x13
+ 335 0034 00       		.byte	0
+ 336 0035 00       		.byte	0
+ 337 0036 05       		.uleb128 0x5
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 8
+
+
+ 338 0037 2E       		.uleb128 0x2e
+ 339 0038 00       		.byte	0
+ 340 0039 3F       		.uleb128 0x3f
+ 341 003a 19       		.uleb128 0x19
+ 342 003b 03       		.uleb128 0x3
+ 343 003c 0E       		.uleb128 0xe
+ 344 003d 3A       		.uleb128 0x3a
+ 345 003e 0B       		.uleb128 0xb
+ 346 003f 3B       		.uleb128 0x3b
+ 347 0040 0B       		.uleb128 0xb
+ 348 0041 49       		.uleb128 0x49
+ 349 0042 13       		.uleb128 0x13
+ 350 0043 11       		.uleb128 0x11
+ 351 0044 01       		.uleb128 0x1
+ 352 0045 12       		.uleb128 0x12
+ 353 0046 06       		.uleb128 0x6
+ 354 0047 40       		.uleb128 0x40
+ 355 0048 18       		.uleb128 0x18
+ 356 0049 9642     		.uleb128 0x2116
+ 357 004b 19       		.uleb128 0x19
+ 358 004c 00       		.byte	0
+ 359 004d 00       		.byte	0
+ 360 004e 06       		.uleb128 0x6
+ 361 004f 2E       		.uleb128 0x2e
+ 362 0050 00       		.byte	0
+ 363 0051 3F       		.uleb128 0x3f
+ 364 0052 19       		.uleb128 0x19
+ 365 0053 03       		.uleb128 0x3
+ 366 0054 0E       		.uleb128 0xe
+ 367 0055 3A       		.uleb128 0x3a
+ 368 0056 0B       		.uleb128 0xb
+ 369 0057 3B       		.uleb128 0x3b
+ 370 0058 0B       		.uleb128 0xb
+ 371 0059 27       		.uleb128 0x27
+ 372 005a 19       		.uleb128 0x19
+ 373 005b 11       		.uleb128 0x11
+ 374 005c 01       		.uleb128 0x1
+ 375 005d 12       		.uleb128 0x12
+ 376 005e 06       		.uleb128 0x6
+ 377 005f 40       		.uleb128 0x40
+ 378 0060 18       		.uleb128 0x18
+ 379 0061 9642     		.uleb128 0x2116
+ 380 0063 19       		.uleb128 0x19
+ 381 0064 00       		.byte	0
+ 382 0065 00       		.byte	0
+ 383 0066 07       		.uleb128 0x7
+ 384 0067 2E       		.uleb128 0x2e
+ 385 0068 01       		.byte	0x1
+ 386 0069 3F       		.uleb128 0x3f
+ 387 006a 19       		.uleb128 0x19
+ 388 006b 03       		.uleb128 0x3
+ 389 006c 0E       		.uleb128 0xe
+ 390 006d 3A       		.uleb128 0x3a
+ 391 006e 0B       		.uleb128 0xb
+ 392 006f 3B       		.uleb128 0x3b
+ 393 0070 0B       		.uleb128 0xb
+ 394 0071 27       		.uleb128 0x27
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 9
+
+
+ 395 0072 19       		.uleb128 0x19
+ 396 0073 11       		.uleb128 0x11
+ 397 0074 01       		.uleb128 0x1
+ 398 0075 12       		.uleb128 0x12
+ 399 0076 06       		.uleb128 0x6
+ 400 0077 40       		.uleb128 0x40
+ 401 0078 18       		.uleb128 0x18
+ 402 0079 9642     		.uleb128 0x2116
+ 403 007b 19       		.uleb128 0x19
+ 404 007c 01       		.uleb128 0x1
+ 405 007d 13       		.uleb128 0x13
+ 406 007e 00       		.byte	0
+ 407 007f 00       		.byte	0
+ 408 0080 08       		.uleb128 0x8
+ 409 0081 34       		.uleb128 0x34
+ 410 0082 00       		.byte	0
+ 411 0083 03       		.uleb128 0x3
+ 412 0084 0E       		.uleb128 0xe
+ 413 0085 3A       		.uleb128 0x3a
+ 414 0086 0B       		.uleb128 0xb
+ 415 0087 3B       		.uleb128 0x3b
+ 416 0088 0B       		.uleb128 0xb
+ 417 0089 49       		.uleb128 0x49
+ 418 008a 13       		.uleb128 0x13
+ 419 008b 02       		.uleb128 0x2
+ 420 008c 18       		.uleb128 0x18
+ 421 008d 00       		.byte	0
+ 422 008e 00       		.byte	0
+ 423 008f 09       		.uleb128 0x9
+ 424 0090 34       		.uleb128 0x34
+ 425 0091 00       		.byte	0
+ 426 0092 03       		.uleb128 0x3
+ 427 0093 0E       		.uleb128 0xe
+ 428 0094 3A       		.uleb128 0x3a
+ 429 0095 0B       		.uleb128 0xb
+ 430 0096 3B       		.uleb128 0x3b
+ 431 0097 0B       		.uleb128 0xb
+ 432 0098 49       		.uleb128 0x49
+ 433 0099 13       		.uleb128 0x13
+ 434 009a 3F       		.uleb128 0x3f
+ 435 009b 19       		.uleb128 0x19
+ 436 009c 3C       		.uleb128 0x3c
+ 437 009d 19       		.uleb128 0x19
+ 438 009e 00       		.byte	0
+ 439 009f 00       		.byte	0
+ 440 00a0 00       		.byte	0
+ 441              		.section	.debug_aranges,"",%progbits
+ 442 0000 2C000000 		.4byte	0x2c
+ 443 0004 0200     		.2byte	0x2
+ 444 0006 00000000 		.4byte	.Ldebug_info0
+ 445 000a 04       		.byte	0x4
+ 446 000b 00       		.byte	0
+ 447 000c 0000     		.2byte	0
+ 448 000e 0000     		.2byte	0
+ 449 0010 00000000 		.4byte	.LFB37
+ 450 0014 2C000000 		.4byte	.LFE37-.LFB37
+ 451 0018 00000000 		.4byte	.LFB38
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 10
+
+
+ 452 001c 18000000 		.4byte	.LFE38-.LFB38
+ 453 0020 00000000 		.4byte	.LFB39
+ 454 0024 30000000 		.4byte	.LFE39-.LFB39
+ 455 0028 00000000 		.4byte	0
+ 456 002c 00000000 		.4byte	0
+ 457              		.section	.debug_ranges,"",%progbits
+ 458              	.Ldebug_ranges0:
+ 459 0000 00000000 		.4byte	.LFB37
+ 460 0004 2C000000 		.4byte	.LFE37
+ 461 0008 00000000 		.4byte	.LFB38
+ 462 000c 18000000 		.4byte	.LFE38
+ 463 0010 00000000 		.4byte	.LFB39
+ 464 0014 30000000 		.4byte	.LFE39
+ 465 0018 00000000 		.4byte	0
+ 466 001c 00000000 		.4byte	0
+ 467              		.section	.debug_line,"",%progbits
+ 468              	.Ldebug_line0:
+ 469 0000 83000000 		.section	.debug_str,"MS",%progbits,1
+ 469      02004300 
+ 469      00000201 
+ 469      FB0E0D00 
+ 469      01010101 
+ 470              	.LASF6:
+ 471 0000 6C6F6E67 		.ascii	"long long int\000"
+ 471      206C6F6E 
+ 471      6720696E 
+ 471      7400
+ 472              	.LASF19:
+ 473 000e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 473      4320342E 
+ 473      392E3320 
+ 473      32303135 
+ 473      30333033 
+ 474 0041 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 474      20726576 
+ 474      6973696F 
+ 474      6E203232 
+ 474      31323230 
+ 475 0074 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 475      66756E63 
+ 475      74696F6E 
+ 475      2D736563 
+ 475      74696F6E 
+ 476              	.LASF8:
+ 477 009c 756E7369 		.ascii	"unsigned int\000"
+ 477      676E6564 
+ 477      20696E74 
+ 477      00
+ 478              	.LASF16:
+ 479 00a9 6E657744 		.ascii	"newData\000"
+ 479      61746100 
+ 480              	.LASF18:
+ 481 00b1 64657669 		.ascii	"deviceConnected\000"
+ 481      6365436F 
+ 481      6E6E6563 
+ 481      74656400 
+ 482              	.LASF22:
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 11
+
+
+ 483 00c1 75696E74 		.ascii	"uint8\000"
+ 483      3800
+ 484              	.LASF5:
+ 485 00c7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 485      20756E73 
+ 485      69676E65 
+ 485      6420696E 
+ 485      7400
+ 486              	.LASF7:
+ 487 00d9 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 487      206C6F6E 
+ 487      6720756E 
+ 487      7369676E 
+ 487      65642069 
+ 488              	.LASF14:
+ 489 00f0 496E6974 		.ascii	"InitializeSystem\000"
+ 489      69616C69 
+ 489      7A655379 
+ 489      7374656D 
+ 489      00
+ 490              	.LASF21:
+ 491 0101 453A5C43 		.ascii	"E:\\Cypress\\FirstApp\\TransferByte.cydsn\000"
+ 491      79707265 
+ 491      73735C46 
+ 491      69727374 
+ 491      4170705C 
+ 492              	.LASF15:
+ 493 0128 6C617374 		.ascii	"lastData\000"
+ 493      44617461 
+ 493      00
+ 494              	.LASF11:
+ 495 0131 63686172 		.ascii	"char\000"
+ 495      00
+ 496              	.LASF1:
+ 497 0136 756E7369 		.ascii	"unsigned char\000"
+ 497      676E6564 
+ 497      20636861 
+ 497      7200
+ 498              	.LASF13:
+ 499 0144 6D61696E 		.ascii	"main\000"
+ 499      00
+ 500              	.LASF23:
+ 501 0149 48616E64 		.ascii	"HandleData\000"
+ 501      6C654461 
+ 501      746100
+ 502              	.LASF4:
+ 503 0154 6C6F6E67 		.ascii	"long int\000"
+ 503      20696E74 
+ 503      00
+ 504              	.LASF20:
+ 505 015d 2E5C6D61 		.ascii	".\\main.c\000"
+ 505      696E2E63 
+ 505      00
+ 506              	.LASF10:
+ 507 0166 646F7562 		.ascii	"double\000"
+ 507      6C6500
+ 508              	.LASF3:
+ARM GAS  C:\Users\ilias\AppData\Local\Temp\ccs5P7eA.s 			page 12
+
+
+ 509 016d 73686F72 		.ascii	"short unsigned int\000"
+ 509      7420756E 
+ 509      7369676E 
+ 509      65642069 
+ 509      6E7400
+ 510              	.LASF0:
+ 511 0180 7369676E 		.ascii	"signed char\000"
+ 511      65642063 
+ 511      68617200 
+ 512              	.LASF17:
+ 513 018c 73656E64 		.ascii	"sendNotifications\000"
+ 513      4E6F7469 
+ 513      66696361 
+ 513      74696F6E 
+ 513      7300
+ 514              	.LASF9:
+ 515 019e 666C6F61 		.ascii	"float\000"
+ 515      7400
+ 516              	.LASF2:
+ 517 01a4 73686F72 		.ascii	"short int\000"
+ 517      7420696E 
+ 517      7400
+ 518              	.LASF12:
+ 519 01ae 73697A65 		.ascii	"sizetype\000"
+ 519      74797065 
+ 519      00
+ 520              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
