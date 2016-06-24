@@ -35,7 +35,7 @@ CYBLE_GATT_HANDLE_VALUE_PAIR_T DataNotificationCCCDhandle;
 void GenericAppEventHandler(uint32 event, void *eventParam)
 {
     CYBLE_GATTS_WRITE_REQ_PARAM_T *wrReqParam;
-    
+    CYBLE_GATTS_WRITE_REQ_PARAM_T *uartRxDataWrReq;
     switch(event)
 	{
     /**********************************************************
@@ -63,6 +63,7 @@ void GenericAppEventHandler(uint32 event, void *eventParam)
 			
 			/* This flag is used in application to check connection status */
 			deviceConnected = TRUE;	
+                UART_1_UartPutString("\n\rConnection established");    
         break;
 
     case CYBLE_EVT_GATT_DISCONNECT_IND:
@@ -87,10 +88,25 @@ void GenericAppEventHandler(uint32 event, void *eventParam)
     		
     		/* Report data to BLE component for sending data when read by Central device */
     		CyBle_GattsWriteAttributeValue(&DataNotificationCCCDhandle, ZERO, &connectionHandle, CYBLE_GATT_DB_PEER_INITIATED);
+            
+            UART_1_Stop();
+            UART_1_SpiUartClearTxBuffer();
+            UART_1_SpiUartClearRxBuffer();
+            UART_1_Start();
 		    break;
         
+        case CYBLE_EVT_GATTS_WRITE_CMD_REQ:
+            
+            uartRxDataWrReq = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
+            //if(uartRxDataWrReq->handleValPair.attrHandle == CYBLE_SERVER_UART_SERVER_UART_RX_DATA_CHAR_HANDLE)
+            //{
+                UART_1_SpiUartPutArray(uartRxDataWrReq->handleValPair.value.val, \
+                                    (uint32) uartRxDataWrReq->handleValPair.value.len);
+            //}
+            break;
             
         case CYBLE_EVT_GATTS_WRITE_REQ:
+                UART_1_UartPutString("\n\rConnection established");  
 			/* This event is received when Central device sends a Write command on an Attribute */
             wrReqParam = (CYBLE_GATTS_WRITE_REQ_PARAM_T *) eventParam;
 

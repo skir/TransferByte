@@ -45,19 +45,29 @@ void InitializeSystem(void)
 {
 	/* Enable global interrupt mask */
 	CyGlobalIntEnable; 
+    UART_1_Start();
 
 	/* Start BLE component and register the CustomEventHandler function. This 
 	* function exposes the events from BLE component for application use */
-    CyBle_Start(GenericAppEventHandler);	
+    CyBle_Start(GenericAppEventHandler);
+    UART_1_UartPutString("started");
+    CyBle_ProcessEvents();
 }
 
 void HandleData(void)
-{    
+{
+    uint32 size = UART_1_SpiUartGetRxBufferSize();    
 	static uint8 lastData;	
 	
-	uint8 newData = 1;
-	
-    lastData += newData;
-	SendDataOverNotification(lastData);
+	uint8 newData;// UART_1_rx_Read() + lastData;
+    //newData = UART_1_UartGetChar();
+    //newData = (data & 0xff000000);
+    //newData += lastData;
+    
+    if (0 != size) 
+    {
+	    SendDataOverNotification((uint8)UART_1_UartGetByte());
+    }
+    lastData = newData;
 }
 /* [] END OF FILE */

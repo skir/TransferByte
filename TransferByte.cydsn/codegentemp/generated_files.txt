@@ -14,27 +14,10 @@
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\cyfitter.h" value="NONE;" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1.h" value="NONE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SPI_UART.h" value="NONE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SPI_UART.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_PM.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SPI.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_BOOT.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SPI_BOOT.c" value="ARM_C_FILE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_PINS.h" value="NONE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SPI_UART_PVT.h" value="NONE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_PVT.h" value="NONE;SCB_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_BOOT.h" value="NONE;SCB_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_1.c" value="ARM_C_FILE;LED_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_1.h" value="NONE;LED_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_1_aliases.h" value="NONE;LED_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_1_PM.c" value="ARM_C_FILE;LED_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\TCPWM_1.c" value="ARM_C_FILE;TCPWM_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\TCPWM_1.h" value="NONE;TCPWM_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\TCPWM_1_PM.c" value="ARM_C_FILE;TCPWM_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\Clock_1.c" value="ARM_C_FILE;Clock_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\Clock_1.h" value="NONE;Clock_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_gatt.h" value="NONE;BLE_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1.h" value="NONE;BLE_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1.c" value="ARM_C_FILE;BLE_1" />
@@ -55,12 +38,6 @@
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_eventHandler.h" value="NONE;BLE_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_custom.h" value="NONE;BLE_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_custom.c" value="ARM_C_FILE;BLE_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\ADC_In.c" value="ARM_C_FILE;ADC_In" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\ADC_In.h" value="NONE;ADC_In" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\ADC_In_aliases.h" value="NONE;ADC_In" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\ADC_In_PM.c" value="ARM_C_FILE;ADC_In" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\isr_1.c" value="ARM_C_FILE;isr_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\isr_1.h" value="NONE;isr_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SW1.c" value="ARM_C_FILE;SW1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SW1.h" value="NONE;SW1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SW1_aliases.h" value="NONE;SW1" />
@@ -85,12 +62,6 @@
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_2.h" value="NONE;LED_2" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_2_aliases.h" value="NONE;LED_2" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\LED_2_PM.c" value="ARM_C_FILE;LED_2" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\I2S_1.c" value="ARM_C_FILE;I2S_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\I2S_1.h" value="NONE;I2S_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\I2S_1_PM.c" value="ARM_C_FILE;I2S_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\I2S_1_PVT.h" value="NONE;I2S_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\Clock_4.c" value="ARM_C_FILE;Clock_4" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\Clock_4.h" value="NONE;Clock_4" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1.c" value="ARM_C_FILE;UART_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1.h" value="NONE;UART_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SPI_UART.h" value="NONE;UART_1" />
@@ -104,28 +75,16 @@
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SPI_UART_PVT.h" value="NONE;UART_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_PVT.h" value="NONE;UART_1" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_BOOT.h" value="NONE;UART_1" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SCBCLK.c" value="ARM_C_FILE;SCB_1_SCBCLK" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_SCBCLK.h" value="NONE;SCB_1_SCBCLK" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_sclk_m.c" value="ARM_C_FILE;SCB_1_sclk_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_sclk_m.h" value="NONE;SCB_1_sclk_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_sclk_m_aliases.h" value="NONE;SCB_1_sclk_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_sclk_m_PM.c" value="ARM_C_FILE;SCB_1_sclk_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_miso_m.c" value="ARM_C_FILE;SCB_1_miso_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_miso_m.h" value="NONE;SCB_1_miso_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_miso_m_aliases.h" value="NONE;SCB_1_miso_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_miso_m_PM.c" value="ARM_C_FILE;SCB_1_miso_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_mosi_m.c" value="ARM_C_FILE;SCB_1_mosi_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_mosi_m.h" value="NONE;SCB_1_mosi_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_mosi_m_aliases.h" value="NONE;SCB_1_mosi_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_mosi_m_PM.c" value="ARM_C_FILE;SCB_1_mosi_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_ss0_m.c" value="ARM_C_FILE;SCB_1_ss0_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_ss0_m.h" value="NONE;SCB_1_ss0_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_ss0_m_aliases.h" value="NONE;SCB_1_ss0_m" />
-  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\SCB_1_ss0_m_PM.c" value="ARM_C_FILE;SCB_1_ss0_m" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_bless_isr.c" value="ARM_C_FILE;BLE_1_bless_isr" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\BLE_1_bless_isr.h" value="NONE;BLE_1_bless_isr" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SCBCLK.c" value="ARM_C_FILE;UART_1_SCBCLK" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SCBCLK.h" value="NONE;UART_1_SCBCLK" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_tx.c" value="ARM_C_FILE;UART_1_tx" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_tx.h" value="NONE;UART_1_tx" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_tx_aliases.h" value="NONE;UART_1_tx" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_tx_PM.c" value="ARM_C_FILE;UART_1_tx" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SCB_IRQ.c" value="ARM_C_FILE;UART_1_SCB_IRQ" />
+  <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_SCB_IRQ.h" value="NONE;UART_1_SCB_IRQ" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_rx.c" value="ARM_C_FILE;UART_1_rx" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_rx.h" value="NONE;UART_1_rx" />
   <file name="E:\Cypress\FirstApp\TransferByte.cydsn\codegentemp\UART_1_rx_aliases.h" value="NONE;UART_1_rx" />

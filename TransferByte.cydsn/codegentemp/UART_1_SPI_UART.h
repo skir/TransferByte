@@ -61,11 +61,11 @@
 ****************************************/
 
 #define UART_1_UART_SUB_MODE              (0u)
-#define UART_1_UART_DIRECTION             (1u)
+#define UART_1_UART_DIRECTION             (3u)
 #define UART_1_UART_DATA_BITS_NUM         (8u)
 #define UART_1_UART_PARITY_TYPE           (2u)
 #define UART_1_UART_STOP_BITS_NUM         (2u)
-#define UART_1_UART_OVS_FACTOR            (12u)
+#define UART_1_UART_OVS_FACTOR            (16u)
 #define UART_1_UART_IRDA_LOW_POWER        (0u)
 #define UART_1_UART_MEDIAN_FILTER_ENABLE  (0u)
 #define UART_1_UART_RETRY_ON_NACK         (0u)
@@ -73,22 +73,22 @@
 #define UART_1_UART_DROP_ON_FRAME_ERR     (0u)
 #define UART_1_UART_DROP_ON_PARITY_ERR    (0u)
 #define UART_1_UART_WAKE_ENABLE           (0u)
-#define UART_1_UART_RX_BUFFER_SIZE        (16u)
-#define UART_1_UART_TX_BUFFER_SIZE        (16u)
+#define UART_1_UART_RX_BUFFER_SIZE        (2048u)
+#define UART_1_UART_TX_BUFFER_SIZE        (2048u)
 #define UART_1_UART_MP_MODE_ENABLE        (0u)
 #define UART_1_UART_MP_ACCEPT_ADDRESS     (0u)
 #define UART_1_UART_MP_RX_ADDRESS         (2u)
 #define UART_1_UART_MP_RX_ADDRESS_MASK    (255u)
 
-#define UART_1_UART_INTERRUPT_MODE        (0u)
+#define UART_1_UART_INTERRUPT_MODE        (1u)
 
-#define UART_1_UART_INTR_RX_MASK          (0u)
+#define UART_1_UART_INTR_RX_MASK          (4u)
 #define UART_1_UART_INTR_TX_MASK          (0u)
 
 #define UART_1_UART_RX_TRIGGER_LEVEL      (7u)
 #define UART_1_UART_TX_TRIGGER_LEVEL      (0u)
 
-#define UART_1_UART_BYTE_MODE_ENABLE      (1u)
+#define UART_1_UART_BYTE_MODE_ENABLE      (0u)
 #define UART_1_UART_CTS_ENABLE            (0u)
 #define UART_1_UART_CTS_POLARITY          (0u)
 #define UART_1_UART_RTS_ENABLE            (0u)
